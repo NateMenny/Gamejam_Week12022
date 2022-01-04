@@ -1,8 +1,21 @@
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=== Tue Jan  4 15:02:14 2022
+
+Packages were changed.
+Update Mode: mergeDefaultDependencies
+=======
+>>>>>>> main
 === Tue Jan  4 15:09:36 2022
 
 Packages were changed.
 Update Mode: resetToDefaultDependencies
+<<<<<<< HEAD
+=======
+>>>>>>> Programming
+>>>>>>> main
 
 The following packages were added:
   com.unity.collab-proxy@1.11.2
@@ -44,3 +57,13 @@ The following packages were added:
   com.unity.textmeshpro@3.0.6
   com.unity.timeline@1.4.8
   com.unity.ugui@1.0.0
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+The following packages were updated:
+  com.unity.2d.animation from version 5.0.1 to 5.0.7
+  com.unity.2d.psdimporter from version 4.0.1 to 4.1.0
+  com.unity.2d.spriteshape from version 5.0.1 to 5.1.4
+=======
+>>>>>>> Programming
+>>>>>>> main
