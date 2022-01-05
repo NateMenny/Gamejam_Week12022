@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 2473327201048360244}
   - component: {fileID: 2473327201048360245}
   - component: {fileID: 2473327201048360242}
-  - component: {fileID: 2473327201048360243}
   - component: {fileID: 2473327201048360246}
+  - component: {fileID: 2473327201048360243}
   - component: {fileID: 2473327201048360247}
   m_Layer: 0
   m_Name: Player
@@ -108,23 +108,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &2473327201048360243
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2473327201048360240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe04980de8bdf4d4d908b18b5532f15a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveLeft: 97
-  moveRight: 100
-  moveUp: 119
-  moveDown: 115
-  moveSpeed: 0
 --- !u!120 &2473327201048360246
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -221,6 +204,23 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!114 &2473327201048360243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2473327201048360240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe04980de8bdf4d4d908b18b5532f15a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveLeft: 97
+  moveRight: 100
+  moveUp: 119
+  moveDown: 115
+  accel: 0
 --- !u!114 &2473327201048360247
 MonoBehaviour:
   m_ObjectHideFlags: 0
