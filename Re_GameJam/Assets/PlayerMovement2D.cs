@@ -47,5 +47,17 @@ public class PlayerMovement2D : MonoBehaviour
         {
             rb2d.AddForce(Vector2.right * moveSpeed);
         }
+        if (Input.GetKey(moveLeft))
+        {
+            rb2d.AddForce(Vector2.left * moveSpeed);
+        }
+        if (Input.GetKey(moveUp))
+        {
+            rb2d.AddForce(Vector2.up * moveSpeed);
+        }
+        if (Input.GetKey(moveDown))
+        {
+            rb2d.AddForce(Vector2.down * moveSpeed);
+        }
     }
 }
