@@ -7,7 +7,7 @@ LineRenderer line;
 
 [SerializeField] LayerMask grappleableMask;
 [SerializeField] float maxDistance = 10f;
-[SerializeField] float grapplePullForce = 7f;
+[SerializeField] float grapplePullForce;
 [SerializeField] float grappleShootSpeed = 20f;
 
 bool isGrappling = false;
@@ -15,10 +15,11 @@ bool isGrappling = false;
 
 Vector2 target;
 private void Start() {
+        if (grapplePullForce < 1f) grapplePullForce = 7f;
     line = GetComponent<LineRenderer>();
 }
 
-    private void FixedUpdate() {
+    private void Update() {
         if (Input.GetMouseButtonDown(0) && !isGrappling) {
             StartGrapple();
         }
@@ -31,9 +32,9 @@ private void Start() {
     }
     private void StartGrapple() 
     {
-        
         Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, maxDistance, grappleableMask);
+       
 
         if (hit.collider != null) 
         {
@@ -51,6 +52,7 @@ private void Start() {
             float maxGrappleTime = 10;
 
             // DONT TOUCH THIS COMMENT
+            
             /*
             float timeCount = 0f;
             float grabTime = 1f;
