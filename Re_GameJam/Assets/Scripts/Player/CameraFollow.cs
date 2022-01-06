@@ -8,8 +8,6 @@ public class CameraFollow : MonoBehaviour {
 	// camera current position
 	Vector3 camPos;
 
-	bool isMoving
-
 
 	private void Start()
 	{
@@ -23,6 +21,7 @@ public class CameraFollow : MonoBehaviour {
 	private void Update()
 	{
 		// if player is moving set camZoom= playerInstance.transform.z - 50, transform camPos.z = camZoom.z
+
 		// if player !is moving set camZoom= playerInstance.transform.z - 15, transform camPos.z = CamZoom.z
 	}
 }
