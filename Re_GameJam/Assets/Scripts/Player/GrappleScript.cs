@@ -24,7 +24,7 @@ public class GrappleScript : MonoBehaviour
 
     private void Update() 
     {
-        if (Input.GetMouseButtonDown(0) && !isGrappling) {
+        if (Input.GetMouseButtonDown(1) && !isGrappling) {
             StartGrapple();
         }
     }
@@ -58,7 +58,7 @@ public class GrappleScript : MonoBehaviour
             float t = 0;
             float maxGrappleTime = 10;
             
-            while (Input.GetMouseButton(0))
+            while (Input.GetMouseButton(1))
             {
                 PlayerMovement2D player = GetComponent<PlayerMovement2D>();
                 Rigidbody2D playerRB = GetComponent<Rigidbody2D>();
