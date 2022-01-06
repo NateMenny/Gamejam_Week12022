@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(LineRenderer))]
 public class GrappleScript : MonoBehaviour {
 LineRenderer line;
 
@@ -13,7 +14,7 @@ LineRenderer line;
 bool isGrappling = false;
 [HideInInspector] public bool retracting = false;
 
-Vector2 target;
+Transform target;
 private void Start() {
         if (grapplePullForce < 1f) grapplePullForce = 7f;
     line = GetComponent<LineRenderer>();
@@ -25,11 +26,14 @@ private void Start() {
         }
     }
    
+    // Sets all grappling values to false
     void StopGrapple()
     {
         isGrappling = false;
         line.enabled = false;
     }
+
+    // Initiates connection and raycast then runs grapple coroutine that pulls player
     private void StartGrapple() 
     {
         Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
@@ -39,7 +43,7 @@ private void Start() {
         if (hit.collider != null) 
         {
             isGrappling = true;
-            target = hit.point;
+            target = hit.collider.transform;
             line.enabled = true;
             line.positionCount = 2;
 
@@ -69,9 +73,15 @@ private void Start() {
             
             while (Input.GetMouseButton(0))
             {
-                GetComponent<Rigidbody2D>().AddForce((target - new Vector2(transform.position.x, transform.position.y)).normalized * grapplePullForce);
+                // Add pull force on a player
+                GetComponent<Rigidbody2D>().AddForce((target.position - transform.position).normalized * grapplePullForce);
+
+                // Gets the closest point to the player along the enemy collider 
+                Vector2 grabSpot = target.GetComponent<Collider2D>().ClosestPoint(transform.position);
+
+                // Set line renderer start and end positions
                 line.SetPosition(0, transform.position);
-                line.SetPosition(1, target);
+                line.SetPosition(1, new Vector3(grabSpot.x, grabSpot.y, -0.1f));
                 yield return null;
                 t += Time.deltaTime;
                 if (t > maxGrappleTime)

@@ -8,6 +8,7 @@ public class EnemyChaser : Enemy
     Rigidbody2D rb;
 
     [SerializeField] float speed;
+    [SerializeField] float maxSpeed;
 
     public override void Death()
     {
@@ -23,10 +24,16 @@ public class EnemyChaser : Enemy
 
         if (speed <= 0)
             speed = 5.0f;
+        if (maxSpeed <= 0f) maxSpeed = 7f;
     }
     // Update is called once per frame
     void Update()
     {
-        
+        Vector2 dirToPlayer = (GameManager.instance.playerInstance.transform.position - transform.position).normalized;
+        rb.AddForce(dirToPlayer * speed);
+        if (rb.velocity.magnitude > maxSpeed)
+        {
+            rb.velocity = rb.velocity.normalized * maxSpeed;
+        }
     }
 }
