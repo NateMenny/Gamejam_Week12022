@@ -5,7 +5,7 @@ using UnityEngine;
 public class ChaseTarget : MonoBehaviour
 {
     public Transform target;
-    [SerializeField]float travelSpeed;
+    public float travelSpeed;
     Rigidbody2D rb;
 
     // Start is called before the first frame update

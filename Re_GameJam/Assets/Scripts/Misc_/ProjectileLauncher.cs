@@ -14,6 +14,7 @@ public class ProjectileLauncher : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (launchSpeed <= 0f) launchSpeed = 2f;
         
     }
 
@@ -21,21 +22,21 @@ public class ProjectileLauncher : MonoBehaviour
     void Update()
     {
       
-            if (timeSinceLastLaunch > launchInterval)
-            {
-                timeSinceLastLaunch = 0f;
-                LaunchProjectile();
-            }
+        if (timeSinceLastLaunch > launchInterval)
+        {
+            timeSinceLastLaunch = 0f;
+            Vector2 dirToPlayer = (GameManager.instance.playerInstance.transform.position - transform.position).normalized;
+            LaunchProjectileToward(dirToPlayer);
+        }
        
         timeSinceLastLaunch += Time.deltaTime;
     }
 
-    void LaunchProjectile()
+    // Spawns a projectile at launch position then shoots it toward direction at launchspeed
+    void LaunchProjectileToward(Vector3 direction)
     {
         Projectile launchedProj = Instantiate(projectile, launchPosition.position, transform.rotation).GetComponent<Projectile>();
-        //proj.transform.position = launchPosition.position;
-        Vector2 dirToPlayer = (GameManager.instance.playerInstance.transform.position - transform.position).normalized;
-        launchedProj.direction = dirToPlayer;
+        launchedProj.direction = direction;
         launchedProj.speed = launchSpeed;
     }
 }

@@ -3,24 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(LineRenderer))]
-public class GrappleScript : MonoBehaviour {
-LineRenderer line;
+public class GrappleScript : MonoBehaviour 
+{
+    LineRenderer line;
 
-[SerializeField] LayerMask grappleableMask;
-[SerializeField] float maxDistance = 10f;
-[SerializeField] float grapplePullForce;
-[SerializeField] float grappleShootSpeed = 20f;
+    [SerializeField] LayerMask grappleableMask;
+    [SerializeField] float maxDistance = 10f;
+    [SerializeField] float grapplePullForce;
+    [SerializeField] float grappleShootSpeed = 20f;
 
-bool isGrappling = false;
-[HideInInspector] public bool retracting = false;
+    bool isGrappling = false;
+    [HideInInspector] public bool retracting = false;
 
-Transform target;
-private void Start() {
+    Transform target;
+    private void Start() 
+    {
         if (grapplePullForce < 1f) grapplePullForce = 7f;
-    line = GetComponent<LineRenderer>();
-}
+        line = GetComponent<LineRenderer>();
+    }
 
-    private void Update() {
+    private void Update() 
+    {
         if (Input.GetMouseButtonDown(0) && !isGrappling) {
             StartGrapple();
         }
@@ -54,27 +57,14 @@ private void Start() {
         {
             float t = 0;
             float maxGrappleTime = 10;
-
-            // DONT TOUCH THIS COMMENT
-            
-            /*
-            float timeCount = 0f;
-            float grabTime = 1f;
-
-            Vector2 newPos;
-            while (timeCount < grabTime)
-            {
-                newPos = Vector2.Lerp(transform.position, target, timeCount);
-                line.SetPosition(0, transform.position);
-                line.SetPosition(1, newPos);
-                timeCount += Time.deltaTime;
-            }
-            */
             
             while (Input.GetMouseButton(0))
             {
+                PlayerMovement2D player = GetComponent<PlayerMovement2D>();
+                Rigidbody2D playerRB = GetComponent<Rigidbody2D>();
+
                 // Add pull force on a player
-                GetComponent<Rigidbody2D>().AddForce((target.position - transform.position).normalized * grapplePullForce);
+                GetComponent<Rigidbody2D>().AddForce((target.position - transform.position).normalized * player.TimeFactoredFloat(grapplePullForce));
 
                 // Gets the closest point to the player along the enemy collider 
                 Vector2 grabSpot = target.GetComponent<Collider2D>().ClosestPoint(transform.position);
@@ -83,6 +73,7 @@ private void Start() {
                 line.SetPosition(0, transform.position);
                 line.SetPosition(1, new Vector3(grabSpot.x, grabSpot.y, -0.1f));
                 yield return null;
+
                 t += Time.deltaTime;
                 if (t > maxGrappleTime)
                 {
