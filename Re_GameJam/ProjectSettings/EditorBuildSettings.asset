@@ -14,18 +14,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/TopDownEngine/Demos/LevelSelection/LevelSelection.unity
     guid: f991cbe75cb701b43baec351a60a630a
-  - enabled: 1
-    path: Assets/TopDownEngine/Demos/Loft3D/Loft3D.unity
-    guid: d1174410a185495439298917edf07eea
-  - enabled: 1
-    path: Assets/TopDownEngine/Demos/Koala2D/KoalaDungeon.unity
-    guid: 84badc9c6b6e65a45be4824a7dc1a865
-  - enabled: 1
-    path: Assets/TopDownEngine/Demos/Koala2D/KoalaRooms.unity
-    guid: e04cbbc59c9fc7f4daf2418621d84909
-  - enabled: 1
-    path: Assets/TopDownEngine/Demos/Koala2D/KoalaProceduralTilemap.unity
-    guid: 8ac9dc199fdb4d8479ee2fe42a5923fb
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/TopDownEngine/Demos/Explodudes/Explodudes.unity
     guid: 4717b9e5ed1ef29459a10adde3e7ae66
@@ -53,30 +53,30 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/TopDownEngine/Demos/Minimal2D/MinimalSandbox2D.unity
     guid: 95a84b442e98a37428865aa09f7e9efb
-  - enabled: 1
-    path: Assets/TopDownEngine/Demos/Minimal3D/MinimalAI3D.unity
-    guid: eca176f2c9bd38a49becfb40aa180fe6
-  - enabled: 1
-    path: Assets/TopDownEngine/Demos/Minimal3D/MinimalGrid3D.unity
-    guid: b26c3409784ab93479d58c8ab30b02ee
-  - enabled: 1
-    path: Assets/TopDownEngine/Demos/Minimal3D/MinimalPathfinding3D.unity
-    guid: cf1765d7f98243b4185a616df4e45868
-  - enabled: 1
-    path: Assets/TopDownEngine/Demos/Minimal3D/MinimalPerformance.unity
-    guid: b118ddfd651e28542947aedf2a9684f3
-  - enabled: 1
-    path: Assets/TopDownEngine/Demos/Minimal3D/MinimalRooms3D.unity
-    guid: ca2d5b64c544736469d5bf86d4ddd7fb
-  - enabled: 1
-    path: Assets/TopDownEngine/Demos/Minimal3D/MinimalSandbox3D.unity
-    guid: f7c701f79b6cb6b44b4fd656eda8e473
-  - enabled: 1
-    path: Assets/TopDownEngine/Demos/Minimal3D/MinimalScene3D.unity
-    guid: 7dd4341e6eb3f384daaf23d76ce07ee2
-  - enabled: 1
-    path: Assets/TopDownEngine/Demos/Minimal3D/MinimalSword3D.unity
-    guid: a8bba52c06984564fbf26a7cfc873e39
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/TopDownEngine/ThirdParty/MoreMountains/InventoryEngine/Demos/PixelRogue/Minimal1.unity
     guid: b7b14cfcf997f4d40a54d4eee5f33401
@@ -89,9 +89,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/TopDownEngine/ThirdParty/MoreMountains/InventoryEngine/Demos/PixelRogue/PixelRogueRoom2.unity
     guid: c3ccf26bc08e243b1aae7d13d40d2ec4
-  - enabled: 1
-    path: Assets/TopDownEngine/Demos/Tanks/Tanks.unity
-    guid: b2c3deca14b3c0645bb90e29059dd328
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/TopDownEngine/Demos/Colonel/Colonel.unity
     guid: 7a42340ee81c11b40a381cee4cacf3c9
@@ -113,4 +113,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/TopDownEngine/ThirdParty/MoreMountains/MMTools/Tools/MMSceneLoading/Demo/MMSceneLoadingDemoSceneB.unity
     guid: 352d34cac2435634fb99618d19a3929c
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 49db0446b69f1ab408895b5082343c42
+  - enabled: 1
+    path: Assets/Scenes/SampleScene.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}

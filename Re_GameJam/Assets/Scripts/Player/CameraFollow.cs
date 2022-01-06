@@ -1,11 +1,15 @@
-
 using UnityEngine;
 
 public class CameraFollow : MonoBehaviour {
-    [SerializeField] Transform target;
 
-private void LateUpdate() {
-    transform.position = target.position;
-}
-    
+	Transform target;
+
+	private void Start()
+	{
+		target = GameManager.instance.playerInstance.transform;
+	}
+
+	private void LateUpdate() {
+		transform.position = target.position;
+	}
 }
