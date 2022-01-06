@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2473327201048360246}
   - component: {fileID: 2473327201048360243}
   - component: {fileID: 2473327201048360247}
+  - component: {fileID: 3722299056466267985}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -221,6 +222,8 @@ MonoBehaviour:
   moveUp: 119
   moveDown: 115
   accel: 0
+  startMaxVel: 12
+  maxVel: 12
 --- !u!114 &2473327201048360247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,6 +240,22 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   maxDistance: 10
-  grappleSpeed: 10
+  grapplePullForce: 0
   grappleShootSpeed: 20
   retracting: 0
+--- !u!58 &3722299056466267985
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2473327201048360240}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
