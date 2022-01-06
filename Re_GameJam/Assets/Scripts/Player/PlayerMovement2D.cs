@@ -18,7 +18,8 @@ public class PlayerMovement2D : MonoBehaviour
     // 
     Rigidbody2D rb2d;
     [SerializeField] float accel;
-    float maxVel;
+    public float startMaxVel = 12f;
+    public float maxVel = 12f;
     float axisX;
     float axisY;
 
