@@ -15,6 +15,10 @@ public class CameraFollow : MonoBehaviour {
 	}
 
 	private void LateUpdate() {
+		if(!target)
+        {
+			target = GameManager.instance.playerInstance.transform;
+		}
 		transform.position = target.position;
 	}
 
