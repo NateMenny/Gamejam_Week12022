@@ -187,7 +187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startMaxVel: 12
-  maxVel: 0
+  maxVel: 12
   timeSlowFactor: 0
 --- !u!120 &1372353925917824321
 LineRenderer:

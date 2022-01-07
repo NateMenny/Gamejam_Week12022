@@ -35,7 +35,7 @@ public class PlayerMovement2D : MonoBehaviour
         axisY = Input.GetAxisRaw("Vertical");
 
         // Add force acceleration and account for time slow
-        rb2d.AddForce(new Vector2(axisX, axisY).normalized * TimeFactoredFloat(maxVel/3));
+        rb2d.AddForce(new Vector2(axisX, axisY).normalized * TimeFactoredFloat(maxVel/5));
         // Clamp velocity on player
         if (rb2d.velocity.magnitude > maxVel)
         {
