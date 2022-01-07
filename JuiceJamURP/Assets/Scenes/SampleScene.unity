@@ -810,7 +810,23 @@ MonoBehaviour:
   projectile: {fileID: 8446208158631625581, guid: 8c00bb98b238b6b44b01ee73e4671b5a, type: 3}
   launchPosition: {fileID: 296834601}
   launchInterval: 1
-  launchSpeed: 6
+  launchSpeed: 4
+--- !u!114 &1125224370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1125224368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e42185ccdc1b534598c8f9cef0b0f19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  verbose: 0
+  maxHealth: 0
+  dieClip: {fileID: 0}
+  soundFXGroup: {fileID: 0}
 --- !u!4 &1125224374 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1371231380048557088, guid: 5c07e43a21a914218902c696c592e0f3, type: 3}
