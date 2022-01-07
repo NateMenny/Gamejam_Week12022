@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
 {
     public bool verbose = false;
     [SerializeField] protected int maxHealth;
+    [SerializeField] public int drops;
     protected int _health;
 
     protected SpriteRenderer sr;
@@ -16,6 +17,8 @@ public class Enemy : MonoBehaviour
     protected MainSounds ms;
     public AudioClip dieClip;
     public AudioMixerGroup soundFXGroup;
+
+    public GameObject orbPrefab;
 
 
     public int health
@@ -29,7 +32,7 @@ public class Enemy : MonoBehaviour
                 _health = maxHealth;
 
             if (_health <= 0)
-                Death();
+                Death(drops);
 
         }
     }
@@ -55,11 +58,20 @@ public class Enemy : MonoBehaviour
         if (maxHealth <= 0)
             maxHealth = 10;
 
+        if (drops<=0)
+        {
+            drops = 1;
+        }
+
         health = maxHealth;
     }
 
-    public virtual void Death()
+    public virtual void Death(int drops)
     {
+        for (int i = 0; i < drops; i++)
+        {
+            Instantiate(orbPrefab, this.transform.position, this.transform.rotation);
+        }
         if (dieClip)
         {
             ms.Play(dieClip, soundFXGroup);

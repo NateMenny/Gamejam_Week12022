@@ -10,9 +10,9 @@ public class EnemyChaser : Enemy
     [SerializeField] float speed;
     [SerializeField] float maxSpeed;
 
-    public override void Death()
+    public override void Death(int drops)
     {
-        base.Death();
+        base.Death(drops);
         rb.velocity = Vector2.zero;
         Destroy(gameObject);
     }
