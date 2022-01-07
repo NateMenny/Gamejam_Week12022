@@ -8,7 +8,7 @@ public abstract class Projectile : MonoBehaviour
     public float speed;
 
     // Update is called once per frame
-    protected void Update()
+    protected virtual void Update()
     {
         // Moves projectile at constant speed in direction
         GetComponent<Rigidbody2D>().velocity = direction * (speed * Time.timeScale);
