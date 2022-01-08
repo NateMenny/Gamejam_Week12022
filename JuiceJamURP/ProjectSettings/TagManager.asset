@@ -13,7 +13,7 @@ TagManager:
   - grappleable
   - Water
   - UI
-  - 
+  - Walls
   - 
   - 
   - 
@@ -54,4 +54,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 2372031009
+    locked: 0
+  - name: Walls
+    uniqueID: 2804071089
     locked: 0
