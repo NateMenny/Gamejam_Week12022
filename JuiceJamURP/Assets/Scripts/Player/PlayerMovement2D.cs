@@ -8,6 +8,8 @@ public class PlayerMovement2D : MonoBehaviour
     bool isMoving;
     public float startMaxVel = 12f;
     public float maxVel;
+    public Camera cam;
+    Vector2 mousePos;
 
     Rigidbody2D rb2d;
     float axisX;
@@ -23,6 +25,7 @@ public class PlayerMovement2D : MonoBehaviour
         if (maxVel <= 0f) maxVel = 50f;
     }
 
+
     // Update is called once per frames
     void Update()
     {
@@ -33,6 +36,8 @@ public class PlayerMovement2D : MonoBehaviour
 
         axisX = Input.GetAxisRaw("Horizontal");
         axisY = Input.GetAxisRaw("Vertical");
+
+        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
         // Add force acceleration and account for time slow
         rb2d.AddForce(new Vector2(axisX, axisY).normalized * TimeFactoredFloat(maxVel/5));
@@ -48,5 +53,11 @@ public class PlayerMovement2D : MonoBehaviour
     public float TimeFactoredFloat(float f)
     {
         return f + f / timeSlowFactor;
+    }
+     void FixedUpdate()
+    {
+        Vector2 lookDir = mousePos - rb2d.position;
+        float angle = Mathf.Atan2(lookDir.y,lookDir.x) * Mathf.Rad2Deg - 90f;
+        rb2d.rotation = angle;
     }
 }
