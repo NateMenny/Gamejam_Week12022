@@ -22,7 +22,7 @@ public class PlayerMovement2D : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         rb2d.drag = 1f;
         
-        if (maxVel <= 0f) maxVel = 50f;
+        if (maxVel <= 0f) maxVel = 25f;
     }
 
 
