@@ -20,7 +20,7 @@ public class PlayerMovement2D : MonoBehaviour
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        rb2d.drag = 6f;
+        rb2d.drag = 1f;
         
         if (maxVel <= 0f) maxVel = 50f;
     }
@@ -39,8 +39,9 @@ public class PlayerMovement2D : MonoBehaviour
 
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
+        float accel = maxVel / 8;
         // Add force acceleration and account for time slow
-        rb2d.AddForce(new Vector2(axisX, axisY).normalized * TimeFactoredFloat(maxVel/5));
+        rb2d.AddForce(new Vector2(axisX, axisY).normalized * TimeFactoredFloat(accel));
         // Clamp velocity on player
         if (rb2d.velocity.magnitude > maxVel)
         {
