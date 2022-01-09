@@ -26,6 +26,7 @@ public class EnemyProjectile : Projectile
             {
                 pm.maxVel -= damage;
             }
+            Destroy(gameObject);
         }
     }
 }

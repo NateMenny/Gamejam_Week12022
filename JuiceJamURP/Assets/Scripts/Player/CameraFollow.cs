@@ -7,7 +7,7 @@ public class CameraFollow : MonoBehaviour {
 	[SerializeField] GameObject realCamera;
 
 	//Camera zoom levels
-	[SerializeField] [Range(1, 10)] int zoomedInDistance;
+	[SerializeField] [Range(1, 10)] int zoomedInDistance = 5;
 	[SerializeField] [Range(1, 10)] int zoomedOutDistance;
 	
 	//the desired zoom value
