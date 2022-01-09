@@ -9,6 +9,9 @@ public class LevelManager : MonoBehaviour
     public Transform spawnPoint;
     public SceneAsset nextScene;
 
+    [Header("Objectives")]
+    public LightBulbObjective[] levelObjectives;
+
     public AudioSource levelMusic;
     // PlayerSounds ps;
 
@@ -25,9 +28,24 @@ public class LevelManager : MonoBehaviour
 
     }
 
+    private void LateUpdate()
+    {
+        bool allObjectivesComplete = true;
+        for(int i = 0; i < levelObjectives.Length; i ++)
+        {
+            if (levelObjectives[i].IsOn == false)
+            {
+                allObjectivesComplete = false;
+                break;
+            }
+        }
+        GameManager.instance.IsWinConditionMet = allObjectivesComplete;
+        Debug.Log("has Won = " + GameManager.instance.IsWinConditionMet);
+    }
+
     public void PlaySoundEffect(AudioClip clip)
     {
-        //ps.Play(clip);
+        
     }
 
     public void PauseLevelMusic()
@@ -36,5 +54,10 @@ public class LevelManager : MonoBehaviour
         {
             levelMusic.Pause();
         }
+    }
+
+    void LevelHasBeenCompleted()
+    {
+        // Play sounds, animations, music and all other things that happen when the player wins
     }
 }

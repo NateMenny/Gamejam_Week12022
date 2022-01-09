@@ -35,7 +35,7 @@ public class CameraFollow : MonoBehaviour {
 	private void Update()
 	{
 		bool isPlayerMoving = GameManager.instance.playerInstance.GetComponent<PlayerMovement2D>().IsMoving;
-		// if player is moving set camZoom= playerInstance.transform.z - 50, transform camPos.z = camZoom.z
+		
 		if (isPlayerMoving)
         {
 			if (!zoomedOut)
@@ -52,9 +52,6 @@ public class CameraFollow : MonoBehaviour {
 				zoomedOut = false;
 			}
 		}
-
-
-		// if player !is moving set camZoom= playerInstance.transform.z - 15, transform camPos.z = CamZoom.z
 	}
 
 	public void ZoomTo(float distance)

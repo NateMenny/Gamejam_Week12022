@@ -39,9 +39,9 @@ public class BulbStateChanger : MonoBehaviour
             if (playerVelocity <= changePercentage * pm.maxVel)
             {
                 anim.SetInteger("glowState", (int)GLOW_STATE.DIM);
-                playerLights[0].pointLightOuterRadius = 0.5f;
-                playerLights[1].pointLightOuterRadius = 1f;
-                playerLights[2].pointLightOuterRadius = 1.5f;
+                playerLights[0].pointLightOuterRadius = 0.5f; // Player Light
+                playerLights[1].pointLightOuterRadius = 1f; // Point Light
+                playerLights[2].pointLightOuterRadius = 1.5f; // Directional Light
             }
             else if (playerVelocity <= changePercentage * 2 * pm.maxVel)
             {

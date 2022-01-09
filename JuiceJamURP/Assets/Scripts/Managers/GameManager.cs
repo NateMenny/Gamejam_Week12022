@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public bool IsWinConditionMet { get => isWinConditionMet; }
+    public bool IsWinConditionMet { get => isWinConditionMet; set => isWinConditionMet = value; }
     // Start is called before the first frame update
     private void Awake()
     {
