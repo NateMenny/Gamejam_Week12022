@@ -1,14 +1,16 @@
+using System.Collections;
 using UnityEngine;
 
 public class CameraFollow : MonoBehaviour {
 	//the player
-	 [SerializeField] Transform target;
+	[SerializeField] Transform target;
 	// The actual camera
 	Camera realCamera;
+	bool zoomedOut = false;
 
 	//Camera zoom levels
-	[SerializeField] [Range(1, 10)] int zoomedInDistance = 5;
-	[SerializeField] [Range(1, 10)] int zoomedOutDistance;
+	[SerializeField] [Range(1, 10)] float zoomedInDistance = 5;
+	[SerializeField] [Range(1, 10)] float zoomedOutDistance;
 	
 	//the desired zoom value
 	Vector3 camZoom;
@@ -36,11 +38,19 @@ public class CameraFollow : MonoBehaviour {
 		// if player is moving set camZoom= playerInstance.transform.z - 50, transform camPos.z = camZoom.z
 		if (isPlayerMoving)
         {
-			ZoomTo(zoomedOutDistance);
+			if (!zoomedOut)
+			{
+				StartCoroutine(SmoothZoom(zoomedOutDistance));
+				zoomedOut = true;
+			}
 		}
         else
         {
-			ZoomTo(zoomedInDistance);
+			if (zoomedOut)
+			{
+				StartCoroutine(SmoothZoom(zoomedInDistance));
+				zoomedOut = false;
+			}
 		}
 
 
@@ -51,4 +61,20 @@ public class CameraFollow : MonoBehaviour {
     {
 		realCamera.orthographicSize = distance;
 	}
+
+	IEnumerator SmoothZoom(float distance)
+    {
+		float zoomLength = 1f; // Time it takes to complete zoom
+		float timeElapsed = 0f;
+		float ogCameraSize = realCamera.orthographicSize;
+
+		while (timeElapsed < zoomLength)
+        {
+			realCamera.orthographicSize = Mathf.Lerp(ogCameraSize, distance, timeElapsed);
+			timeElapsed += Time.deltaTime;
+			yield return null;
+			Debug.Log("camera move time: " + timeElapsed);
+        }
+		
+    }
 }
