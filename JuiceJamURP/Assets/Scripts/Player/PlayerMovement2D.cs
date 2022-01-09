@@ -5,12 +5,21 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement2D : MonoBehaviour
 {
+    enum MoveType
+    {
+        FORCE,
+        VELOCITY
+    }
+
     public bool debugVelocityTimeScale;
     bool isMoving;
-    public float startMaxVel = 12f;
-    public float maxVel;
-    Vector2 mousePos;
 
+    [Header("Move Settings")]
+    [Tooltip("Factor of max velocity")] public float accelFactor;
+    public float maxVel;
+    [SerializeField] MoveType moveType = MoveType.FORCE;
+
+    Vector2 mousePos;
     Rigidbody2D rb2d;
     float axisX;
     float axisY;
@@ -38,13 +47,38 @@ public class PlayerMovement2D : MonoBehaviour
 
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        float accelForce = maxVel / 5;
-        // Add force acceleration and account for time slow
-        rb2d.AddForce(new Vector2(axisX, axisY).normalized * TimeFactoredFloat(accelForce));
-        if(axisX == 0f && axisY == 0f)
+        float accelForce = maxVel / accelFactor;
+        switch (moveType)
         {
-            rb2d.AddForce(-rb2d.velocity.normalized * TimeFactoredFloat(accelForce));
-            if (rb2d.velocity.magnitude < 0.1f) rb2d.velocity = Vector2.zero;
+            case MoveType.FORCE:
+                rb2d.AddForce(new Vector2(axisX, axisY).normalized * TimeFactoredFloat(accelForce));
+                break;
+            case MoveType.VELOCITY:
+                // This is the velocity and acceleration version (Try it out and see which one you like better)
+                rb2d.velocity += new Vector2(axisX, axisY).normalized * (accelFactor * Time.unscaledDeltaTime);
+                break;
+            default: break;
+        }
+        
+        // Add force acceleration and account for time slow
+        
+
+        
+
+        if (axisX == 0f && axisY == 0f)
+        {
+            switch(moveType)
+            {
+                case MoveType.FORCE:
+                    rb2d.AddForce(-rb2d.velocity.normalized * TimeFactoredFloat(accelForce));
+                    break;
+                case MoveType.VELOCITY:
+                    // This is the velocity and acceleration version (Try it out and see which one you like better)
+                    rb2d.velocity += -rb2d.velocity.normalized * (accelFactor * Time.unscaledDeltaTime);
+                    break;
+                default: break;
+            }
+            if (rb2d.velocity.magnitude < 0.3f) rb2d.velocity = Vector2.zero;
         }
         else
         // Clamp velocity on player
