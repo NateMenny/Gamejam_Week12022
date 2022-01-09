@@ -4,7 +4,7 @@ public class CameraFollow : MonoBehaviour {
 	//the player
 	 [SerializeField] Transform target;
 	// The actual camera
-	[SerializeField] GameObject realCamera;
+	Camera realCamera;
 
 	//Camera zoom levels
 	[SerializeField] [Range(1, 10)] int zoomedInDistance = 5;
@@ -18,7 +18,7 @@ public class CameraFollow : MonoBehaviour {
 
 	private void Start()
 	{
-		if (!realCamera) Debug.Log("You forgot to set the real camera goofball ;)");
+		realCamera = Camera.main;
 		
 	}
 
@@ -49,6 +49,6 @@ public class CameraFollow : MonoBehaviour {
 
 	public void ZoomTo(float distance)
     {
-		realCamera.GetComponent<Camera>().orthographicSize = distance;
+		realCamera.orthographicSize = distance;
 	}
 }
