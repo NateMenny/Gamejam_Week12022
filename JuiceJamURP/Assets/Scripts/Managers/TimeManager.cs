@@ -11,7 +11,7 @@ public class TimeManager : MonoBehaviour
         {
             Rigidbody2D rb = GameManager.instance.playerInstance.GetComponent<Rigidbody2D>();
             float playerMaxVel = GameManager.instance.playerInstance.GetComponent<PlayerMovement2D>().maxVel;
-            if (rb.velocity.magnitude / playerMaxVel > 1)
+            if (rb.velocity.magnitude / playerMaxVel > 0.97f)
             {
                 
                 Time.timeScale = 0.5f;

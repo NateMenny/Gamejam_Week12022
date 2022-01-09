@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 6854192183847691121}
   - component: {fileID: -8064681766887956731}
   - component: {fileID: -3064544423503635734}
+  - component: {fileID: -3251708674010795666}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -118,10 +119,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe04980de8bdf4d4d908b18b5532f15a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugVelocityTimeScale: 1
-  accelFactor: 4
-  startMaxVel: 12
+  debugVelocityTimeScale: 0
+  accelFactor: 3
   maxVel: 12
+  moveType: 0
 --- !u!120 &4065020700758089205
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -363,6 +364,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-3251708674010795666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980115426210923140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12969a7916d9ac144a9533e273071e56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pm: {fileID: 0}
+  ppl: {fileID: 0}
 --- !u!1 &2888950104769886984
 GameObject:
   m_ObjectHideFlags: 0

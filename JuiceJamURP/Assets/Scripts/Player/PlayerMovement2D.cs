@@ -25,6 +25,8 @@ public class PlayerMovement2D : MonoBehaviour
     float axisY;
     float timeSlowFactor;
 
+    public bool IsMoving { get => isMoving; }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +50,7 @@ public class PlayerMovement2D : MonoBehaviour
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         float accelForce = maxVel / accelFactor;
+        // Add force acceleration and account for time slow
         switch (moveType)
         {
             case MoveType.FORCE:
@@ -59,14 +62,10 @@ public class PlayerMovement2D : MonoBehaviour
                 break;
             default: break;
         }
-        
-        // Add force acceleration and account for time slow
-        
-
-        
 
         if (axisX == 0f && axisY == 0f)
         {
+            isMoving = false;
             switch(moveType)
             {
                 case MoveType.FORCE:
@@ -78,9 +77,12 @@ public class PlayerMovement2D : MonoBehaviour
                     break;
                 default: break;
             }
-            if (rb2d.velocity.magnitude < 0.3f) rb2d.velocity = Vector2.zero;
+            if (rb2d.velocity.magnitude < 0.2f) rb2d.velocity = Vector2.zero;
         }
         else
+        {
+            isMoving = true;
+        }
         // Clamp velocity on player
         if (rb2d.velocity.magnitude > maxVel)
         {
