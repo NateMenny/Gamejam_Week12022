@@ -11,7 +11,6 @@ public class CameraFollow : MonoBehaviour {
 
 	private void Start()
 	{
-		target = GameManager.instance.playerInstance.transform;
 	}
 
 	private void LateUpdate() {
@@ -19,7 +18,7 @@ public class CameraFollow : MonoBehaviour {
         {
 			target = GameManager.instance.playerInstance.transform;
 		}
-		transform.position = target.position;
+		transform.position = new Vector3(target.position.x, target.position.y, 0f);
 	}
 
 	private void Update()

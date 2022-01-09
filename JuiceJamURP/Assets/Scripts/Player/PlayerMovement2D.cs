@@ -8,7 +8,6 @@ public class PlayerMovement2D : MonoBehaviour
     bool isMoving;
     public float startMaxVel = 12f;
     public float maxVel;
-    public Camera cam;
     Vector2 mousePos;
 
     Rigidbody2D rb2d;
@@ -37,7 +36,7 @@ public class PlayerMovement2D : MonoBehaviour
         axisX = Input.GetAxisRaw("Horizontal");
         axisY = Input.GetAxisRaw("Vertical");
 
-        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         float accel = maxVel / 8;
         // Add force acceleration and account for time slow
