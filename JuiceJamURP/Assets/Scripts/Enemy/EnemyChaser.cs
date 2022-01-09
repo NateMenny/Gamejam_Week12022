@@ -12,9 +12,10 @@ public class EnemyChaser : Enemy
 
     public override void Death()
     {
+        Debug.Log("Enemy is dying");
         base.Death();
         rb.velocity = Vector2.zero;
-        Destroy(gameObject);
+        DestroyObj(0f);
     }
 
     public override void Start()

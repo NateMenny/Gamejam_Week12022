@@ -98,7 +98,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 6
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
@@ -118,10 +118,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe04980de8bdf4d4d908b18b5532f15a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debugVelocityTimeScale: 1
   startMaxVel: 12
   maxVel: 12
-  cam: {fileID: 0}
-  timeSlowFactor: 0
 --- !u!120 &4065020700758089205
 LineRenderer:
   m_ObjectHideFlags: 0

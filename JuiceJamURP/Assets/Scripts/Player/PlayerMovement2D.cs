@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement2D : MonoBehaviour
 {
+    public bool debugVelocityTimeScale;
     bool isMoving;
     public float startMaxVel = 12f;
     public float maxVel;
@@ -13,13 +14,12 @@ public class PlayerMovement2D : MonoBehaviour
     Rigidbody2D rb2d;
     float axisX;
     float axisY;
-    public float timeSlowFactor;
+    float timeSlowFactor;
 
     // Start is called before the first frame update
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        rb2d.drag = 1f;
         
         if (maxVel <= 0f) maxVel = 25f;
     }
@@ -38,26 +38,44 @@ public class PlayerMovement2D : MonoBehaviour
 
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        float accel = maxVel / 8;
+        float accelForce = maxVel / 5;
         // Add force acceleration and account for time slow
-        rb2d.AddForce(new Vector2(axisX, axisY).normalized * TimeFactoredFloat(accel));
+        rb2d.AddForce(new Vector2(axisX, axisY).normalized * TimeFactoredFloat(accelForce));
+        if(axisX == 0f && axisY == 0f)
+        {
+            rb2d.AddForce(-rb2d.velocity.normalized * TimeFactoredFloat(accelForce));
+            if (rb2d.velocity.magnitude < 0.1f) rb2d.velocity = Vector2.zero;
+        }
+        else
         // Clamp velocity on player
         if (rb2d.velocity.magnitude > maxVel)
         {
             rb2d.velocity = rb2d.velocity.normalized* maxVel;
         }
 
+        if(debugVelocityTimeScale)
         Debug.Log("Velocity: " + rb2d.velocity.magnitude + "Timescale: " + Time.timeScale);
     }
 
+    // Returns a float with reversed time scaling
     public float TimeFactoredFloat(float f)
     {
         return f + f / timeSlowFactor;
     }
+
      void FixedUpdate()
     {
         Vector2 lookDir = mousePos - rb2d.position;
         float angle = Mathf.Atan2(lookDir.y,lookDir.x) * Mathf.Rad2Deg - 90f;
         rb2d.rotation = angle;
+    }
+
+    // Create default player script and move there
+    private void LateUpdate()
+    {
+        if(maxVel <= 0f)
+        {
+           // Die();
+        }
     }
 }

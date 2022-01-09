@@ -34,16 +34,14 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    
-
     public virtual void TakeDamage(int damage)
     {
         health -= damage;
     }
 
-    public void DestroyObj()
+    protected void DestroyObj(float deathDelay)
     {
-        Destroy(gameObject);
+        Destroy(gameObject, deathDelay);
     }
 
     public virtual void Start()
@@ -60,6 +58,7 @@ public class Enemy : MonoBehaviour
 
     public virtual void Death()
     {
+        // Die animation should be handled on the enemy anim controller
         if (dieClip)
         {
             ms.Play(dieClip, soundFXGroup);

@@ -4,7 +4,14 @@ using UnityEngine;
 
 public class EnemyProjectile : Projectile
 {
+    public int damage;
     // Update is called once per frame
+
+    private void Start()
+    {
+        if (damage <= 0) Debug.Log("There aint no damage to deal on " + name);
+    }
+
     void Update()
     {
         base.Update();
@@ -14,7 +21,11 @@ public class EnemyProjectile : Projectile
     {
         if (!collision.CompareTag("Enemy") && !collision.CompareTag("Projectile"))
         {
-            Destroy(gameObject);
+            PlayerMovement2D pm = collision.gameObject.GetComponent<PlayerMovement2D>();
+            if(pm)
+            {
+                pm.maxVel -= damage;
+            }
         }
     }
 }

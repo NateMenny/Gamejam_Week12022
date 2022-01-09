@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerProjectile : Projectile
 {
+    public int damage;
     void Update()
     {
         base.Update();
@@ -13,6 +14,11 @@ public class PlayerProjectile : Projectile
     {
         if (!collision.CompareTag("Player") && !collision.CompareTag("Projectile"))
         {
+            Enemy e = collision.gameObject.GetComponent<Enemy>();
+            if (e)
+            {
+                e.TakeDamage(damage);
+            }
             Destroy(gameObject);
         }
     }

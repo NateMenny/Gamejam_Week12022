@@ -7,6 +7,10 @@ using UnityEditor;
 public class GameManager : MonoBehaviour
 {
     public CanvasManager currentCanvas;
+    public SceneAsset nextScene;
+    public SceneAsset titleScene;
+    public SceneAsset endScene;
+
     bool isWinConditionMet = false;
     static GameManager _instance = null;
     public static GameManager instance
@@ -30,7 +34,8 @@ public class GameManager : MonoBehaviour
         set
         {
             _score = value;
-            Debug.Log("Score changed to " + _score);
+            //currentCanvas.SetScoreText(_score.ToString("0000"));
+            //Debug.Log("Score changed to " + _score);
         }
     }
 
@@ -44,14 +49,12 @@ public class GameManager : MonoBehaviour
 
             _lives = value;
             if (_lives > maxLives)
-            {
                 _lives = maxLives;
-                return;
-            }
 
             if (_lives < 0)
             {
-                SceneManager.LoadScene("GameOver");
+                //gameover stuff can go here
+                instance.EndGame(false);
                 return;
             }
 
@@ -63,18 +66,17 @@ public class GameManager : MonoBehaviour
             }
 
             if (currentCanvas)
-                currentCanvas.SetLivesText(_lives);
+                //currentCanvas.SetLivesText(_lives.ToString("00"));
 
             Debug.Log("Lives changed to " + _lives);
 
         }
     }
 
-
+    public bool IsWinConditionMet { get => isWinConditionMet; }
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        _lives = 3;
         if (instance)
         {
             Destroy(gameObject);
@@ -84,7 +86,9 @@ public class GameManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(this);
         }
-
+    }
+    void Start()
+    {
         if (!currentCanvas)
             currentCanvas = FindObjectOfType<CanvasManager>();
     }
@@ -94,36 +98,20 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (SceneManager.GetActiveScene().name == "MainMenu")
-                SceneManager.LoadScene("SampleScene");
-            else if (SceneManager.GetActiveScene().name == "SampleScene")
-                SceneManager.LoadScene("EndScene");
-            else if (SceneManager.GetActiveScene().name == "EndScene")
-                SceneManager.LoadScene("MainMenu");
+            if (SceneManager.GetActiveScene().name == titleScene.name)
+            {
+                QuitGame();
+            }
         }
-
-        if (Input.GetKeyDown(KeyCode.Backspace))
-            QuitGame();
-
     }
 
     public void QuitGame()
     {
 #if UNITY_EDITOR
-            EditorApplication.isPlaying = false;
+        EditorApplication.isPlaying = false;
 #else
-        Application.Quit();
+            Application.Quit();
 #endif
-    }
-
-    public void PauseGame()
-    {
-        Time.timeScale = 0;
-    }
-
-    public void ResumeGame()
-    {
-        Time.timeScale = 1;
     }
 
     public void StartGame()
@@ -133,15 +121,31 @@ public class GameManager : MonoBehaviour
 
     public void ReturnToTitle()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene(titleScene.name);
     }
     public void EndGame(bool isComplete)
     {
         isWinConditionMet = isComplete;
-        SceneManager.LoadScene("EndScene");
+        SceneManager.LoadScene(endScene.name);
     }
     public void SpawnPlayer(Transform spawnLocation)
     {
-        playerInstance = Instantiate(playerPrefab, spawnLocation.position, spawnLocation.rotation);
+        if (spawnLocation)
+            playerInstance = Instantiate(playerPrefab, spawnLocation.position, spawnLocation.rotation);
+    }
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0f;
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 0f;
+    }
+
+    public void MoveToNextScene()
+    {
+        SceneManager.LoadScene(nextScene.name);
     }
 }
