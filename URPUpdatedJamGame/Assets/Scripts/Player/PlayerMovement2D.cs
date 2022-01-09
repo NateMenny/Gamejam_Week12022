@@ -14,6 +14,12 @@ public class PlayerMovement2D : MonoBehaviour
     float axisY;
     public float timeSlowFactor;
 
+    public float _maxVel
+    {
+        get { return maxVel; }
+        set { _maxVel = value; }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +32,14 @@ public class PlayerMovement2D : MonoBehaviour
     // Update is called once per frames
     void Update()
     {
+        if (maxVel - 0.01f > startMaxVel)
+        {
+            maxVel -= (maxVel / startMaxVel)/10 * Time.deltaTime * (1 / Time.timeScale);
+            if (maxVel < startMaxVel)
+            {
+                maxVel = startMaxVel;
+            }
+        }
         // Calculate Slowdown factor
         if (rb2d.velocity.magnitude / maxVel > 1) timeSlowFactor = 0.5f;
         else timeSlowFactor = 1f - (rb2d.velocity.magnitude / maxVel) / 2;

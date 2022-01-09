@@ -9,6 +9,12 @@ public class ChaseTarget : MonoBehaviour
     Rigidbody2D rb;
     [SerializeField] float chaseDistance;
 
+    public Transform _target
+    {
+        get { return target; }
+        set { _target = value; }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
