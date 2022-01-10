@@ -7,18 +7,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1125224369, guid: 5c07e43a21a914218902c696c592e0f3, type: 3}
-      propertyPath: launchSpeed
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 1125224370, guid: 5c07e43a21a914218902c696c592e0f3, type: 3}
-      propertyPath: dieClip
-      value: 
-      objectReference: {fileID: 8300000, guid: e798f972a896ea34088bc21be9ac3e44, type: 3}
-    - target: {fileID: 1125224370, guid: 5c07e43a21a914218902c696c592e0f3, type: 3}
-      propertyPath: orbPrefab
-      value: 
-      objectReference: {fileID: 2471088992040353806, guid: 217ce86442a2a794c95ba184cbe22dec, type: 3}
     - target: {fileID: 1371231380048557088, guid: 5c07e43a21a914218902c696c592e0f3, type: 3}
       propertyPath: m_RootOrder
       value: 0

@@ -18,7 +18,7 @@ TagManager:
   - Walls
   - Tutorial
   - Projectiles
-  - 
+  - Particles
   - 
   - 
   - 
@@ -65,4 +65,7 @@ TagManager:
     locked: 0
   - name: LightOrb
     uniqueID: 2026371721
+    locked: 0
+  - name: Particles
+    uniqueID: 1155377079
     locked: 0

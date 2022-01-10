@@ -72,7 +72,7 @@ public class Enemy : MonoBehaviour
         }
         if (dieClip)
         {
-            ms.Play(dieClip, soundFXGroup);
+           // ms.Play(dieClip, soundFXGroup);
             if (verbose)
                 Debug.Log("Can be overriden in child classes to implement their own game over.");
         }
