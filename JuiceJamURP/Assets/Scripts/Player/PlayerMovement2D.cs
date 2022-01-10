@@ -116,4 +116,12 @@ public class PlayerMovement2D : MonoBehaviour
            // Die();
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Orb")
+        {
+            maxVel++;
+        }
+    }
 }

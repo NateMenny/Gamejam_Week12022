@@ -7,9 +7,9 @@ public class EnemyStationaryShooter : Enemy
 {
     ProjectileLauncher pl;
     // Start is called before the first frame update
-    public override void Death()
+    public override void Death(int drops)
     {
-        base.Death();
+        base.Death(drops);
         base.DestroyObj(0f);
     }
 

@@ -9,10 +9,10 @@ public class EnemyChaser : Enemy
 
     [SerializeField] float maxSpeed;
 
-    public override void Death()
+    public override void Death(int drops)
     {
         Debug.Log("Enemy is dying");
-        base.Death();
+        base.Death(drops);
         rb.velocity = Vector2.zero;
         DestroyObj(0f);
     }

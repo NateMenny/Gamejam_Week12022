@@ -59,9 +59,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   verbose: 0
-  maxHealth: 0
+  maxHealth: 1
+  drops: 1
   dieClip: {fileID: 0}
   soundFXGroup: {fileID: 0}
+  orbPrefab: {fileID: 2471088992040353806, guid: 217ce86442a2a794c95ba184cbe22dec, type: 3}
 --- !u!1001 &1802713763832274738
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -80,6 +82,10 @@ PrefabInstance:
     - target: {fileID: 324456850991248082, guid: 5c07e43a21a914218902c696c592e0f3, type: 3}
       propertyPath: m_SortingLayerID
       value: -995710951
+      objectReference: {fileID: 0}
+    - target: {fileID: 714505756290691025, guid: 5c07e43a21a914218902c696c592e0f3, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1371231380048557088, guid: 5c07e43a21a914218902c696c592e0f3, type: 3}
       propertyPath: m_RootOrder
@@ -127,7 +133,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2499020332166800223, guid: 5c07e43a21a914218902c696c592e0f3, type: 3}
       propertyPath: m_Name
-      value: Enemy_Range
+      value: Enemy_Range Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c07e43a21a914218902c696c592e0f3, type: 3}
