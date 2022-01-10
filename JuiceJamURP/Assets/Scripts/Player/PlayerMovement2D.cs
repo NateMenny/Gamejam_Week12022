@@ -12,6 +12,7 @@ public class PlayerMovement2D : MonoBehaviour
     }
 
     public bool debugVelocityTimeScale;
+    [SerializeField] float cameraZoomDelay;
     bool isMoving;
 
     [Header("Move Settings")]
@@ -24,6 +25,7 @@ public class PlayerMovement2D : MonoBehaviour
     float axisX;
     float axisY;
     float timeSlowFactor;
+    float timeSinceKeyRelease;
 
     public bool IsMoving { get => isMoving; }
 
@@ -35,12 +37,17 @@ public class PlayerMovement2D : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         
         if (maxVel <= 0f) maxVel = 25f;
+        if (cameraZoomDelay <= 0f) cameraZoomDelay = 0.25f;
     }
 
 
     // Update is called once per frames
     void Update()
     {
+        if(maxVel < 0f)
+        {
+            maxVel = 0f;
+        }
         // Calculate Slowdown factor
         if (rb2d.velocity.magnitude / maxVel > 1) timeSlowFactor = 0.5f;
         else timeSlowFactor = 1f - (rb2d.velocity.magnitude / maxVel) / 2;
@@ -64,10 +71,14 @@ public class PlayerMovement2D : MonoBehaviour
                 break;
             default: break;
         }
+       
 
         if (axisX == 0f && axisY == 0f)
         {
-            isMoving = false;
+            if (timeSinceKeyRelease > cameraZoomDelay)
+            {
+                isMoving = false;
+            }
             switch(moveType)
             {
                 case MoveType.FORCE:
@@ -80,10 +91,15 @@ public class PlayerMovement2D : MonoBehaviour
                 default: break;
             }
             if (rb2d.velocity.magnitude < 0.2f) rb2d.velocity = Vector2.zero;
+            timeSinceKeyRelease += Time.unscaledDeltaTime;
         }
         else
         {
-            isMoving = true;
+            if (timeSinceKeyRelease > cameraZoomDelay)
+            {
+                isMoving = true;
+            }
+            timeSinceKeyRelease = 0f;
         }
         // Clamp velocity on player
         if (rb2d.velocity.magnitude > maxVel)

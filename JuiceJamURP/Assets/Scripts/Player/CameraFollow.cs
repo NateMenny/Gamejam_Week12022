@@ -7,7 +7,9 @@ public class CameraFollow : MonoBehaviour {
 	// The actual camera
 	Camera realCamera;
 	bool zoomedOut = false;
-	[SerializeField] bool verbose; 
+	[SerializeField] bool verbose;
+
+	float timeElapsedSinceZoom;
 
 	//Camera zoom levels
 	[SerializeField] [Range(1, 10)] float zoomedInDistance = 5;
@@ -22,7 +24,6 @@ public class CameraFollow : MonoBehaviour {
 	private void Start()
 	{
 		realCamera = Camera.main;
-		
 	}
 
 	private void LateUpdate() {
@@ -36,23 +37,30 @@ public class CameraFollow : MonoBehaviour {
 	private void Update()
 	{
 		bool isPlayerMoving = GameManager.instance.playerInstance.GetComponent<PlayerMovement2D>().IsMoving;
-		
-		if (isPlayerMoving)
-        {
-			if (!zoomedOut)
+
+		if (timeElapsedSinceZoom >= 1f)
+		{
+			if (isPlayerMoving)
 			{
-				StartCoroutine(SmoothZoom(zoomedOutDistance));
-				zoomedOut = true;
+				if (!zoomedOut)
+				{
+					StartCoroutine(SmoothZoom(zoomedOutDistance));
+					zoomedOut = true;
+					timeElapsedSinceZoom = 0f;
+				}
+			}
+			else
+			{
+				if (zoomedOut)
+				{
+					StartCoroutine(SmoothZoom(zoomedInDistance));
+					zoomedOut = false;
+					timeElapsedSinceZoom = 0f;
+				}
 			}
 		}
-        else
-        {
-			if (zoomedOut)
-			{
-				StartCoroutine(SmoothZoom(zoomedInDistance));
-				zoomedOut = false;
-			}
-		}
+
+		timeElapsedSinceZoom += Time.unscaledDeltaTime;
 	}
 
 	public void ZoomTo(float distance)
@@ -62,14 +70,14 @@ public class CameraFollow : MonoBehaviour {
 
 	IEnumerator SmoothZoom(float distance)
     {
-		float zoomLength = 1f; // Time it takes to complete zoom
+		float zoomDuration = 1f; // Time it takes to complete zoom
 		float timeElapsed = 0f;
 		float ogCameraSize = realCamera.orthographicSize;
 
-		while (timeElapsed < zoomLength)
+		while (timeElapsed < zoomDuration)
         {
 			realCamera.orthographicSize = Mathf.Lerp(ogCameraSize, distance, timeElapsed);
-			timeElapsed += Time.deltaTime;
+			timeElapsed += Time.unscaledDeltaTime;
 			yield return null;
 			if (verbose)
 			{

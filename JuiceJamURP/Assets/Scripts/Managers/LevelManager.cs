@@ -33,14 +33,17 @@ public class LevelManager : MonoBehaviour
         bool allObjectivesComplete = true;
         for(int i = 0; i < levelObjectives.Length; i ++)
         {
-            if (levelObjectives[i].IsOn == false)
+            if (levelObjectives[i])
             {
-                allObjectivesComplete = false;
-                break;
+                if (levelObjectives[i].IsOn == false)
+                {
+                    allObjectivesComplete = false;
+                    break;
+                }
             }
         }
         GameManager.instance.IsWinConditionMet = allObjectivesComplete;
-        Debug.Log("has Won = " + GameManager.instance.IsWinConditionMet);
+       // Debug.Log("has Won = " + GameManager.instance.IsWinConditionMet);
     }
 
     public void PlaySoundEffect(AudioClip clip)
