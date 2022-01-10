@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Projectile
   - Pillars
+  - Orb
   layers:
   - Default
   - TransparentFX
@@ -15,8 +16,8 @@ TagManager:
   - Water
   - UI
   - Walls
-  - 
-  - 
+  - Tutorial
+  - Projectiles
   - 
   - 
   - 
@@ -58,4 +59,10 @@ TagManager:
     locked: 0
   - name: Walls
     uniqueID: 2804071089
+    locked: 0
+  - name: Tutorial
+    uniqueID: 2905602479
+    locked: 0
+  - name: LightOrb
+    uniqueID: 2026371721
     locked: 0

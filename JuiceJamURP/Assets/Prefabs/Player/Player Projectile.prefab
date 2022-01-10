@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0}
-  speed: 100
+  speed: 0
   damage: 1
 --- !u!114 &-5560122367776432267
 MonoBehaviour:
