@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4880953330655917072}
   - component: {fileID: -7598925519927970034}
   m_Layer: 0
-  m_Name: Test Projectile
+  m_Name: Projectile_Enemy
   m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0}
-  speed: 0
+  speed: 1000
   damage: 5
 --- !u!114 &-7598925519927970034
 MonoBehaviour:
