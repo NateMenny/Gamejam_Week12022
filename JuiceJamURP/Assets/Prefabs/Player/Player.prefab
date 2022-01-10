@@ -120,7 +120,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe04980de8bdf4d4d908b18b5532f15a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugVelocityTimeScale: 1
+  debugVelocityTimeScale: 0
+  cameraZoomDelay: 0
   accelFactor: 6
   maxVel: 12
   moveType: 1
@@ -168,7 +169,7 @@ LineRenderer:
   m_Positions: []
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 1
+    widthMultiplier: 10
     widthCurve:
       serializedVersion: 2
       m_Curve:
