@@ -67,7 +67,7 @@ public class BulbStateChanger : MonoBehaviour
             else
             {
                 anim.SetInteger("glowState", (int)GLOW_STATE.MAX);
-                playerLights[0].pointLightOuterRadius = 8f;
+                playerLights[0].pointLightOuterRadius = 6f;
                 playerLights[1].pointLightOuterRadius = 7f;
                 playerLights[2].pointLightOuterRadius = 9f;
             }
