@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 4423482324808997048}
   - component: {fileID: 4481021977175805938}
   - component: {fileID: 6573303051170335478}
+  - component: {fileID: 3673435274009279183}
+  - component: {fileID: 7413387682865663701}
   m_Layer: 3
   m_Name: bknLB_2
   m_TagString: Pillars
@@ -141,3 +143,34 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &3673435274009279183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4423482324808997054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 207680ba17448594e9902d8f216cdfea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &7413387682865663701
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4423482324808997054}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0b77d00d485be4d4193853c6b5344616, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
