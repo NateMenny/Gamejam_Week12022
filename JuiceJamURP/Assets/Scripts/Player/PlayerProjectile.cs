@@ -7,6 +7,7 @@ public class PlayerProjectile : Projectile
     public int damage;
     void Update()
     {
+        transform.Rotate(new Vector3(0f,2f,0f));
         base.Update();
     }
 

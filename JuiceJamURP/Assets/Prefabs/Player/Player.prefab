@@ -120,10 +120,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe04980de8bdf4d4d908b18b5532f15a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugVelocityTimeScale: 0
-  accelFactor: 3
+  debugVelocityTimeScale: 1
+  accelFactor: 6
   maxVel: 12
-  moveType: 0
+  moveType: 1
   playerSlowDown: 5
 --- !u!120 &4065020700758089205
 LineRenderer:
@@ -216,7 +216,7 @@ LineRenderer:
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
-    textureMode: 1
+    textureMode: 2
     shadowBias: 0.5
     generateLightingData: 1
   m_UseWorldSpace: 1
@@ -321,8 +321,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 4835697183256960136, guid: dda48dcd2c4446742a8f0ee63995f556, type: 3}
   launchPosition: {fileID: 7838861013816685738}
-  launchInterval: 0.5
-  launchSpeed: 8
+  launchInterval: 0.3
+  launchSpeed: 30
 --- !u!114 &6854192183847691121
 MonoBehaviour:
   m_ObjectHideFlags: 0

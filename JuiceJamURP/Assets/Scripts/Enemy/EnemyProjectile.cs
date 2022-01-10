@@ -14,6 +14,7 @@ public class EnemyProjectile : Projectile
 
     void Update()
     {
+        transform.Rotate(new Vector3(1f,0f,1f));
         base.Update();
     }
 
