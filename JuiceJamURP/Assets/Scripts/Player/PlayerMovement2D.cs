@@ -27,6 +27,8 @@ public class PlayerMovement2D : MonoBehaviour
 
     public bool IsMoving { get => isMoving; }
 
+    [SerializeField] float playerSlowDown;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -86,7 +88,7 @@ public class PlayerMovement2D : MonoBehaviour
         // Clamp velocity on player
         if (rb2d.velocity.magnitude > maxVel)
         {
-            rb2d.velocity = rb2d.velocity.normalized* maxVel;
+            rb2d.velocity -= rb2d.velocity.normalized*maxVel*Time.deltaTime*playerSlowDown;
         }
 
         if(debugVelocityTimeScale)

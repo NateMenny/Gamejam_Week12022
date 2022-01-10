@@ -7,6 +7,7 @@ public class CameraFollow : MonoBehaviour {
 	// The actual camera
 	Camera realCamera;
 	bool zoomedOut = false;
+	[SerializeField] bool verbose; 
 
 	//Camera zoom levels
 	[SerializeField] [Range(1, 10)] float zoomedInDistance = 5;
@@ -70,7 +71,10 @@ public class CameraFollow : MonoBehaviour {
 			realCamera.orthographicSize = Mathf.Lerp(ogCameraSize, distance, timeElapsed);
 			timeElapsed += Time.deltaTime;
 			yield return null;
-			Debug.Log("camera move time: " + timeElapsed);
+			if (verbose)
+			{
+				Debug.Log("camera move time: " + timeElapsed);
+			}
         }
 		
     }
