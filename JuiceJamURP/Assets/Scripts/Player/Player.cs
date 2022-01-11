@@ -21,11 +21,11 @@ public class Player : MonoBehaviour
         ppl.pointLightOuterRadius = pm.maxVel / 4;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (!collision.gameObject.CompareTag("PlayerProjectile") && !collision.gameObject.CompareTag("Bulb"))
         {
-            Camera.main.GetComponent<CameraEffects>().Shake();
+            CameraEffects.ShakeOnce();
         }
     }
 }
