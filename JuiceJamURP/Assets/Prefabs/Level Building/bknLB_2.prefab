@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7413387682865663701}
   m_Layer: 3
   m_Name: bknLB_2
-  m_TagString: Pillars
+  m_TagString: Bulb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
