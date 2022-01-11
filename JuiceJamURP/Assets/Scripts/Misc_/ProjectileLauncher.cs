@@ -6,6 +6,10 @@ public class ProjectileLauncher : MonoBehaviour
 {
     [SerializeField] GameObject projectile;
 
+    [Header("Sound Settings")]
+    public AudioClip shootSFX;
+    MainSounds ms;
+
     [Header("Launch Settings")]
     [SerializeField] Transform launchPosition;
     public float launchInterval;
@@ -17,6 +21,7 @@ public class ProjectileLauncher : MonoBehaviour
     void Start()
     {
         if (launchSpeed <= 0f) launchSpeed = 2f;
+        ms = GetComponent<MainSounds>();
     }
 
     // Update is called once per frame
@@ -31,6 +36,9 @@ public class ProjectileLauncher : MonoBehaviour
     {
         if (timeSinceLastLaunch >= launchInterval)
         {
+            if(shootSFX)
+            ms.Play(shootSFX);
+
             Projectile launchedProj = Instantiate(projectile, launchPosition.position, transform.rotation).GetComponent<Projectile>();
             launchedProj.direction = direction.normalized;
             launchedProj.speed = launchSpeed;

@@ -5,7 +5,6 @@ using UnityEngine;
 [RequireComponent(typeof(ProjectileLauncher), typeof(MainSounds))]
 public class EnemyStationaryShooter : Enemy
 {
-    public AudioClip shootSFX;
     ProjectileLauncher pl;
 
     // Start is called before the first frame update
@@ -31,6 +30,5 @@ public class EnemyStationaryShooter : Enemy
     void Shoot(Vector2 direction)
     {
         pl.LaunchProjectileToward(direction);
-        ms.Play(shootSFX);
     }
 }

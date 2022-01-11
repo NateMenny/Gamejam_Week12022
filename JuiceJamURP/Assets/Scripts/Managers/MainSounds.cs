@@ -26,6 +26,8 @@ public class MainSounds : MonoBehaviour
                 continue;
 
             didPlay = true;
+            source.spatialBlend = 1;
+            source.rolloffMode = AudioRolloffMode.Linear;
             source.maxDistance = volumeDistance;
             source.PlayOneShot(clip);
             source.outputAudioMixerGroup = group;
@@ -36,6 +38,8 @@ public class MainSounds : MonoBehaviour
         {
             AudioSource temp = gameObject.AddComponent<AudioSource>();
             currentAudioSources.Add(temp);
+            temp.spatialBlend = 1;
+            temp.rolloffMode = AudioRolloffMode.Linear;
             temp.maxDistance = volumeDistance;
             temp.PlayOneShot(clip);
             temp.outputAudioMixerGroup = group;
@@ -52,6 +56,8 @@ public class MainSounds : MonoBehaviour
                 continue;
 
             didPlay = true;
+            source.spatialBlend = 1;
+            source.rolloffMode = AudioRolloffMode.Linear;
             source.maxDistance = volumeDistance;
             source.PlayOneShot(clip);
             //source.outputAudioMixerGroup = group;
@@ -62,6 +68,8 @@ public class MainSounds : MonoBehaviour
         {
             AudioSource temp = gameObject.AddComponent<AudioSource>();
             currentAudioSources.Add(temp);
+            temp.spatialBlend = 1;
+            temp.rolloffMode = AudioRolloffMode.Linear;
             temp.maxDistance = volumeDistance;
             temp.PlayOneShot(clip);
             //temp.outputAudioMixerGroup = group;
