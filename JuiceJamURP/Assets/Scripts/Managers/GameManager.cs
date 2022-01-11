@@ -2,14 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEditor;
+
 
 public class GameManager : MonoBehaviour
 {
     public CanvasManager currentCanvas;
-    public SceneAsset nextScene;
-    public SceneAsset titleScene;
-    public SceneAsset endScene;
 
     bool isWinConditionMet = false;
     bool gameHasEnded = false;
@@ -111,11 +108,7 @@ public class GameManager : MonoBehaviour
 
     public void QuitGame()
     {
-#if UNITY_EDITOR
-        EditorApplication.isPlaying = false;
-#else
             Application.Quit();
-#endif
     }
 
     public void StartGame()
@@ -131,7 +124,7 @@ public class GameManager : MonoBehaviour
 
     public void ReturnToTitle()
     {
-        SceneManager.LoadScene(titleScene.name);
+       // SceneManager.LoadScene(titleScene.name);
     }
     public void EndGame(bool isComplete)
     {
@@ -155,6 +148,6 @@ public class GameManager : MonoBehaviour
 
     public void MoveToNextScene()
     {
-        SceneManager.LoadScene(nextScene.name);
+       // SceneManager.LoadScene(nextScene.name);
     }
 }

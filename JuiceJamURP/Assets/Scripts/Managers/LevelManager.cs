@@ -1,13 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 
 public class LevelManager : MonoBehaviour
 {
     public int startingLives;
     public Transform spawnPoint;
-    public SceneAsset nextScene;
+    //public SceneAsset nextScene;
     public TimeManager tm;
 
     [Header("Objectives")]
@@ -26,7 +25,7 @@ public class LevelManager : MonoBehaviour
         GameManager.instance.SpawnPlayer(spawnPoint);
         GameManager.instance.currentLevel = this;
 
-        if (nextScene) GameManager.instance.nextScene = nextScene;
+        //if (nextScene) GameManager.instance.nextScene = nextScene;
 
     }
 
