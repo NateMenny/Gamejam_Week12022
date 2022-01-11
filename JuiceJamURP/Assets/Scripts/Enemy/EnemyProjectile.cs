@@ -20,7 +20,7 @@ public class EnemyProjectile : Projectile
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.CompareTag("Enemy") && !collision.CompareTag("Projectile"))
+        if (!collision.CompareTag("Enemy") && !collision.CompareTag("EnemyProjectile") && !collision.CompareTag("PlayerProjectile"))
         {
             PlayerMovement2D pm = collision.gameObject.GetComponent<PlayerMovement2D>();
             if(pm)

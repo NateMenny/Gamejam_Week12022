@@ -13,7 +13,7 @@ public class PlayerProjectile : Projectile
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.CompareTag("Player") && !collision.CompareTag("Projectile"))
+        if (!collision.CompareTag("Player") && !collision.CompareTag("EnemyProjectile") && !collision.CompareTag("PlayerProjectile"))
         {
             Enemy e = collision.gameObject.GetComponent<Enemy>();
             if (e)

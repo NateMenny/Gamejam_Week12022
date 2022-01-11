@@ -36,35 +36,41 @@ public class CameraFollow : MonoBehaviour {
 
 	private void Update()
 	{
-		bool isPlayerMoving = GameManager.instance.playerInstance.GetComponent<PlayerMovement2D>().IsMoving;
-
-
-		if (timeElapsedSinceZoom >= 1f)
+		if (!GameManager.instance.GameHasEnded)
 		{
-			if (isPlayerMoving)
+			bool isPlayerMoving = GameManager.instance.playerInstance.GetComponent<PlayerMovement2D>().IsMoving;
+
+			if (timeElapsedSinceZoom >= 1f)
 			{
-				if (!zoomedOut)
+				if (isPlayerMoving)
 				{
-					StartCoroutine(SmoothZoom(zoomedOutDistance));
-					zoomedOut = true;
-					timeElapsedSinceZoom = 0f;
+					if (!zoomedOut)
+					{
+						StartCoroutine(SmoothZoom(zoomedOutDistance));
+						zoomedOut = true;
+						timeElapsedSinceZoom = 0f;
+					}
 				}
-			}
-			else
-			{
-				if (zoomedOut)
+				else
 				{
-					StartCoroutine(SmoothZoom(zoomedInDistance));
-					zoomedOut = false;
-					timeElapsedSinceZoom = 0f;
+					if (zoomedOut)
+					{
+						StartCoroutine(SmoothZoom(zoomedInDistance));
+						zoomedOut = false;
+						timeElapsedSinceZoom = 0f;
+					}
 				}
 			}
 		}
+		else
+        {
+			EndLevel();
+        }
 
 		timeElapsedSinceZoom += Time.unscaledDeltaTime;
 	}
 
-	public void ZoomTo(float distance)
+	public void SnapTo(float distance)
     {
 		realCamera.orthographicSize = distance;
 	}
@@ -85,6 +91,11 @@ public class CameraFollow : MonoBehaviour {
 				Debug.Log("camera move time: " + timeElapsed);
 			}
         }
+		
+    }
+
+	void EndLevel()
+    {
 		
     }
 }

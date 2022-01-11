@@ -273,6 +273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  verbose: 0
   zoomedInDistance: 5
   zoomedOutDistance: 9
 --- !u!114 &399169264
@@ -287,6 +288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dfa15590083863409446cef834edb16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  volumeDistance: 0
 --- !u!1001 &401684315
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -367,6 +369,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: c9cd840e1a6548f4b8aeb371e017d45a, type: 2}
+    - target: {fileID: 1125224370, guid: 5c07e43a21a914218902c696c592e0f3, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1371231380048557088, guid: 5c07e43a21a914218902c696c592e0f3, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -443,7 +449,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!114 &519420030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1324,6 +1330,18 @@ PrefabInstance:
     - target: {fileID: 721439268069157650, guid: 77f4084f85422184f9d1c0392e65d376, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1802713762810007680, guid: 77f4084f85422184f9d1c0392e65d376, type: 3}
+      propertyPath: shootSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: b8e93bf69c016224f86084db3b50b68f, type: 3}
+    - target: {fileID: 1802713762810007683, guid: 77f4084f85422184f9d1c0392e65d376, type: 3}
+      propertyPath: shootSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: b8e93bf69c016224f86084db3b50b68f, type: 3}
+    - target: {fileID: 2524016877327549375, guid: 77f4084f85422184f9d1c0392e65d376, type: 3}
+      propertyPath: volumeDistance
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4299472396813466733, guid: 77f4084f85422184f9d1c0392e65d376, type: 3}
       propertyPath: m_Name

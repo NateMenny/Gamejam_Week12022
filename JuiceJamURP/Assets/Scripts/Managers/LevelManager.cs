@@ -46,11 +46,6 @@ public class LevelManager : MonoBehaviour
        // Debug.Log("has Won = " + GameManager.instance.IsWinConditionMet);
     }
 
-    public void PlaySoundEffect(AudioClip clip)
-    {
-        
-    }
-
     public void PauseLevelMusic()
     {
         if (levelMusic)

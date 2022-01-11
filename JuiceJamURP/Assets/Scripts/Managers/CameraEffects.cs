@@ -1,8 +1,5 @@
 using UnityEngine;
 
-namespace DitzeGames.Effects
-{
-
     /// <summary>
     /// Camera Effects
     /// </summary>
@@ -119,5 +116,3 @@ namespace DitzeGames.Effects
             lastFoV = nextFoV = 0f;
         }
     }
-
-}

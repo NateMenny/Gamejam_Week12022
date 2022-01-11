@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public SceneAsset endScene;
 
     bool isWinConditionMet = false;
+    bool gameHasEnded = false;
+
     static GameManager _instance = null;
     public static GameManager instance
     {
@@ -74,6 +76,8 @@ public class GameManager : MonoBehaviour
     }
 
     public bool IsWinConditionMet { get => isWinConditionMet; set => isWinConditionMet = value; }
+    public bool GameHasEnded { get => gameHasEnded; set => gameHasEnded = value; }
+
     // Start is called before the first frame update
     private void Awake()
     {
