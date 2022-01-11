@@ -6202,11 +6202,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3ed9e26fbc9d8ea42956d65293d5b2ac, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f4c4393260589204d928050b4ece9021, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
