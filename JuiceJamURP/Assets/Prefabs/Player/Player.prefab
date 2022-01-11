@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: -3251708674010795666}
   - component: {fileID: 7609637529178188627}
   - component: {fileID: 4927522361022794526}
+  - component: {fileID: 8612157547966601446}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -322,7 +323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 8790207269558059560, guid: 51b139d8560950b47bffebe0b7fb58ea, type: 3}
-  shootSFX: {fileID: 0}
+  shootSFX: {fileID: 8300000, guid: b8e93bf69c016224f86084db3b50b68f, type: 3}
   launchPosition: {fileID: 7838861013816685738}
   launchInterval: 0.3
   launchSpeed: 35
@@ -395,6 +396,19 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 980115426210923140}
   m_Enabled: 1
+--- !u!114 &8612157547966601446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980115426210923140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dfa15590083863409446cef834edb16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeDistance: 1
 --- !u!1 &2888950104769886984
 GameObject:
   m_ObjectHideFlags: 0
