@@ -63,6 +63,7 @@ public class LevelManager : MonoBehaviour
         canvas.titleText.text = "All Bulbs Lit";
         GameManager.instance.currentCanvas.lightBulbsCollectedText.text = bulbsCollected.ToString("00") + "/" + levelObjectives.Length;
         canvas.startButton.onClick.AddListener(() => GameManager.instance.StartGame());
+        canvas.enabled = true;
     }
 
     public void LevelHasBeenLost()
@@ -72,6 +73,7 @@ public class LevelManager : MonoBehaviour
         canvas.titleText.text = "Light Exstinguished";
         GameManager.instance.currentCanvas.lightBulbsCollectedText.text = bulbsCollected.ToString("00") + "/" + levelObjectives.Length;
         canvas.startButton.onClick.AddListener(() => GameManager.instance.StartGame());
+        canvas.enabled = true;
     }
 
     public void BulbCollected()
