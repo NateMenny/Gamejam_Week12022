@@ -123,7 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugVelocityTimeScale: 0
   cameraZoomDelay: 0
-  accelFactor: 6
+  accelFactor: 6.26
   maxVel: 12
   moveType: 1
   playerSlowDown: 5

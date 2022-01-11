@@ -55,5 +55,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Chase Variant
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1125224370, guid: 5c07e43a21a914218902c696c592e0f3, type: 3}
+    - {fileID: 1125224369, guid: 5c07e43a21a914218902c696c592e0f3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5c07e43a21a914218902c696c592e0f3, type: 3}

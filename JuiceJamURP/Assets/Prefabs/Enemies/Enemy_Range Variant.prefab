@@ -55,5 +55,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Range Variant
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1586250847, guid: 5c07e43a21a914218902c696c592e0f3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5c07e43a21a914218902c696c592e0f3, type: 3}

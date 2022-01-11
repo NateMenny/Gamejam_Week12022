@@ -12,8 +12,8 @@ public class CameraFollow : MonoBehaviour {
 	float timeElapsedSinceZoom;
 
 	//Camera zoom levels
-	[SerializeField] [Range(1, 10)] float zoomedInDistance = 5;
-	[SerializeField] [Range(1, 10)] float zoomedOutDistance;
+	[SerializeField] [Range(1, 10)] float zoomedInDistance = 7;
+	[SerializeField] [Range(1, 10)] float zoomedOutDistance = 9;
 	
 	//the desired zoom value
 	Vector3 camZoom;
@@ -37,6 +37,7 @@ public class CameraFollow : MonoBehaviour {
 	private void Update()
 	{
 		bool isPlayerMoving = GameManager.instance.playerInstance.GetComponent<PlayerMovement2D>().IsMoving;
+
 
 		if (timeElapsedSinceZoom >= 1f)
 		{

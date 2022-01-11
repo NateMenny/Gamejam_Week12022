@@ -251,6 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dfa15590083863409446cef834edb16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  volumeDistance: 4.9
 --- !u!114 &9077042760070115383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -344,10 +345,10 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_CollisionDetection: 1
+  m_Constraints: 4
 --- !u!114 &1586250847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -363,7 +364,7 @@ MonoBehaviour:
   verbose: 0
   maxHealth: 6
   drops: 1
-  dieClip: {fileID: 0}
+  dieClip: {fileID: 8300000, guid: b8e93bf69c016224f86084db3b50b68f, type: 3}
   soundFXGroup: {fileID: 0}
   orbPrefab: {fileID: 2471088992040353806, guid: 217ce86442a2a794c95ba184cbe22dec, type: 3}
   maxSpeed: 0
