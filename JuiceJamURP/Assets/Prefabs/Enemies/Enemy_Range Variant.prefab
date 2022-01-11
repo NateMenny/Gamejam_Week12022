@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1125224369, guid: 5c07e43a21a914218902c696c592e0f3, type: 3}
+      propertyPath: shootSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: c1f54770780a8ef46a9def4992699263, type: 3}
     - target: {fileID: 1371231380048557088, guid: 5c07e43a21a914218902c696c592e0f3, type: 3}
       propertyPath: m_RootOrder
       value: 0

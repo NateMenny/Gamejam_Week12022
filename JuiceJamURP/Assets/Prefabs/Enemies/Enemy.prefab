@@ -251,7 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dfa15590083863409446cef834edb16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volumeDistance: 4.9
+  volumeDistance: 15
 --- !u!114 &9077042760070115383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -306,6 +306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 8446208158631625581, guid: 8c00bb98b238b6b44b01ee73e4671b5a, type: 3}
+  shootSFX: {fileID: 0}
   launchPosition: {fileID: 296834601}
   launchInterval: 1
   launchSpeed: 20
@@ -327,7 +328,6 @@ MonoBehaviour:
   dieClip: {fileID: 8300000, guid: e798f972a896ea34088bc21be9ac3e44, type: 3}
   soundFXGroup: {fileID: 0}
   orbPrefab: {fileID: 2471088992040353806, guid: 217ce86442a2a794c95ba184cbe22dec, type: 3}
-  shootSFX: {fileID: 8300000, guid: c1f54770780a8ef46a9def4992699263, type: 3}
 --- !u!50 &1586250848
 Rigidbody2D:
   serializedVersion: 4
@@ -364,7 +364,7 @@ MonoBehaviour:
   verbose: 0
   maxHealth: 6
   drops: 1
-  dieClip: {fileID: 8300000, guid: b8e93bf69c016224f86084db3b50b68f, type: 3}
+  dieClip: {fileID: 8300000, guid: e798f972a896ea34088bc21be9ac3e44, type: 3}
   soundFXGroup: {fileID: 0}
   orbPrefab: {fileID: 2471088992040353806, guid: 217ce86442a2a794c95ba184cbe22dec, type: 3}
   maxSpeed: 0
