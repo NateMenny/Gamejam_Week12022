@@ -5,6 +5,8 @@ using UnityEngine.Audio;
 
 public class MainSounds : MonoBehaviour
 {
+    [Header("Volume Settings")]
+    public float volumeDistance;
 
     List<AudioSource> currentAudioSources = new List<AudioSource>();
     bool didPlay = false;
@@ -24,6 +26,7 @@ public class MainSounds : MonoBehaviour
                 continue;
 
             didPlay = true;
+            source.maxDistance = volumeDistance;
             source.PlayOneShot(clip);
             source.outputAudioMixerGroup = group;
             break;
@@ -33,6 +36,7 @@ public class MainSounds : MonoBehaviour
         {
             AudioSource temp = gameObject.AddComponent<AudioSource>();
             currentAudioSources.Add(temp);
+            temp.maxDistance = volumeDistance;
             temp.PlayOneShot(clip);
             temp.outputAudioMixerGroup = group;
         }
@@ -48,6 +52,7 @@ public class MainSounds : MonoBehaviour
                 continue;
 
             didPlay = true;
+            source.maxDistance = volumeDistance;
             source.PlayOneShot(clip);
             //source.outputAudioMixerGroup = group;
             break;
@@ -57,6 +62,7 @@ public class MainSounds : MonoBehaviour
         {
             AudioSource temp = gameObject.AddComponent<AudioSource>();
             currentAudioSources.Add(temp);
+            temp.maxDistance = volumeDistance;
             temp.PlayOneShot(clip);
             //temp.outputAudioMixerGroup = group;
         }
