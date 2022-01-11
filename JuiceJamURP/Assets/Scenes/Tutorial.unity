@@ -2913,6 +2913,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 207680ba17448594e9902d8f216cdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &286748731 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7356477550398535752, guid: 3c6f707e2fa9b4e459f59d8668a4d1e3, type: 3}
+  m_PrefabInstance: {fileID: 1944595568}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9ed56cc0c299c3438b550cd88fdeb81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &286960895 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6382716432094359485, guid: ae7be4915921efb47aed247f28a9a0d7, type: 3}
@@ -4115,8 +4126,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 0.90588236, g: 0.19215687, b: 0.19215687, a: 1}
+    m_PressedColor: {r: 0.46226418, g: 0, b: 0, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -4136,7 +4147,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 430008596}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 286748731}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: QuitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &430008596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9099,6 +9122,8 @@ MonoBehaviour:
   verbose: 0
   maxHealth: 0
   drops: 0
+  hasAttackRadius: 0
+  attackRadius: 0
   dieClip: {fileID: 0}
   soundFXGroup: {fileID: 0}
   orbPrefab: {fileID: 0}
@@ -12009,6 +12034,8 @@ MonoBehaviour:
   verbose: 0
   maxHealth: 0
   drops: 0
+  hasAttackRadius: 0
+  attackRadius: 0
   dieClip: {fileID: 0}
   soundFXGroup: {fileID: 0}
   orbPrefab: {fileID: 0}
@@ -14863,7 +14890,7 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9056604, g: 0.19223925, b: 0.19223925, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_PressedColor: {r: 0.4627451, g: 0, b: 0, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
