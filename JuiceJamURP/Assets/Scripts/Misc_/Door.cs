@@ -6,6 +6,7 @@ public class Door : MonoBehaviour
 {
     public float openDistance;
     public float timeToOpen = 0.5f;
+    bool isOpen = false;
     public LightBulbObjective[] doorObjectives;
     // Start is called before the first frame update
     void Start()
@@ -31,10 +32,16 @@ public class Door : MonoBehaviour
 
         if(allObjectivesComplete)
         {
-            StartCoroutine(OpenDoor());
+            if (!isOpen)
+            {
+                Destroy(gameObject);
+                isOpen = true;
+            }
+
         }
     }
 
+    // Do not use
     IEnumerator OpenDoor()
     {
         Vector3 oldPos = transform.position;

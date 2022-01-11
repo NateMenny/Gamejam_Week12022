@@ -102,10 +102,10 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (SceneManager.GetActiveScene().name == titleScene.name)
-            {
-                QuitGame();
-            }
+           // if (SceneManager.GetActiveScene().name == titleScene.name)
+           //{
+              //  QuitGame();
+            //}
         }
     }
 
