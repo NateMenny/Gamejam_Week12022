@@ -44,13 +44,20 @@ public class PlayerMovement2D : MonoBehaviour
     // Update is called once per frames
     void Update()
     {
-        if(maxVel < 0f)
+        if (maxVel < 1f)
         {
             maxVel = 0f;
+            accelFactor = 0f;
         }
-        // Calculate Slowdown factor
-        if (rb2d.velocity.magnitude / maxVel > 1) timeSlowFactor = 0.5f;
-        else timeSlowFactor = 1f - (rb2d.velocity.magnitude / maxVel) / 2;
+        else
+        {
+            // Calculate Slowdown factor
+            if (rb2d.velocity.magnitude / maxVel > 1)
+            {
+                timeSlowFactor = 0.5f;
+            }
+            else timeSlowFactor = 1f - (rb2d.velocity.magnitude / maxVel) / 2;
+        }
         
 
         axisX = Input.GetAxisRaw("Horizontal");
