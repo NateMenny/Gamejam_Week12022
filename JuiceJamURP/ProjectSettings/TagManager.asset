@@ -5,9 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
-  - Projectile
   - Pillars
   - Orb
+  - PlayerProjectile
+  - EnemyProjectile
   layers:
   - Default
   - TransparentFX
