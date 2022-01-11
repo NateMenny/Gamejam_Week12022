@@ -321,7 +321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fc09827a8843604f97d9d654707f940, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 4835697183256960136, guid: dda48dcd2c4446742a8f0ee63995f556, type: 3}
+  projectile: {fileID: 8790207269558059560, guid: 51b139d8560950b47bffebe0b7fb58ea, type: 3}
   shootSFX: {fileID: 0}
   launchPosition: {fileID: 7838861013816685738}
   launchInterval: 0.3
