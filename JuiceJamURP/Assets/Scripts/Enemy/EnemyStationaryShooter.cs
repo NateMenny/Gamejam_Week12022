@@ -23,8 +23,19 @@ public class EnemyStationaryShooter : Enemy
     // Update is called once per frame
     void Update()
     {
-        Vector2 direction = GameManager.instance.playerInstance.transform.position - transform.position;
-        Shoot(direction);
+        if (hasAttackRadius)
+        {
+            if ((GameManager.instance.playerInstance.transform.position - transform.position).magnitude < attackRadius)
+            {
+                Vector2 direction = GameManager.instance.playerInstance.transform.position - transform.position;
+                Shoot(direction);
+            }
+        }
+        else
+        {
+            Vector2 direction = GameManager.instance.playerInstance.transform.position - transform.position;
+            Shoot(direction);
+        }
     }
 
     void Shoot(Vector2 direction)

@@ -10,6 +10,11 @@ public class Enemy : MonoBehaviour
     public bool verbose = false;
     [SerializeField] protected int maxHealth;
     public int drops;
+
+    [Header("Attack Settings")]
+    public bool hasAttackRadius;
+    [SerializeField] protected float attackRadius;
+
     protected int _health;
 
     protected SpriteRenderer sr;

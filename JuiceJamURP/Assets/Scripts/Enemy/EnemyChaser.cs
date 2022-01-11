@@ -27,12 +27,29 @@ public class EnemyChaser : Enemy
     // Update is called once per frame
     void Update()
     {
-        Vector2 dirToPlayer = (GameManager.instance.playerInstance.transform.position - transform.position).normalized;
-        //rb.AddForce(dirToPlayer * speed);
-        rb.velocity = dirToPlayer * (maxSpeed * Time.timeScale);
-        if (rb.velocity.magnitude > maxSpeed)
+
+        if (hasAttackRadius)
         {
-            rb.velocity = rb.velocity.normalized * maxSpeed;
+            if ((GameManager.instance.playerInstance.transform.position - transform.position).magnitude < attackRadius)
+            {
+                Vector2 dirToPlayer = (GameManager.instance.playerInstance.transform.position - transform.position).normalized;
+                //rb.AddForce(dirToPlayer * speed);
+                rb.velocity = dirToPlayer * (maxSpeed * Time.timeScale);
+                if (rb.velocity.magnitude > maxSpeed)
+                {
+                    rb.velocity = rb.velocity.normalized * maxSpeed;
+                }
+            }
+        }
+        else
+        {
+            Vector2 dirToPlayer = (GameManager.instance.playerInstance.transform.position - transform.position).normalized;
+            //rb.AddForce(dirToPlayer * speed);
+            rb.velocity = dirToPlayer * (maxSpeed * Time.timeScale);
+            if (rb.velocity.magnitude > maxSpeed)
+            {
+                rb.velocity = rb.velocity.normalized * maxSpeed;
+            }
         }
     }
 }
