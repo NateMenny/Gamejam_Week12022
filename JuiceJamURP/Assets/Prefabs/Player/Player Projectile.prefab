@@ -130,10 +130,10 @@ GameObject:
   - component: {fileID: 2911755955254547199}
   - component: {fileID: 4397292823907971107}
   - component: {fileID: 4282329940336773285}
-  - component: {fileID: 1839367751927722446}
   - component: {fileID: 2345767776447702284}
   - component: {fileID: 117939369666190241}
   - component: {fileID: -7090771066575108456}
+  - component: {fileID: 1839367751927722446}
   m_Layer: 8
   m_Name: Player Projectile
   m_TagString: PlayerProjectile
@@ -4987,21 +4987,6 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!114 &1839367751927722446
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4835697183256960136}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63f3c45e0f053714d9476e44bbda26e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  direction: {x: 0, y: 0}
-  speed: 0
-  damage: 1
 --- !u!50 &2345767776447702284
 Rigidbody2D:
   serializedVersion: 4
@@ -5093,3 +5078,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1839367751927722446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4835697183256960136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63f3c45e0f053714d9476e44bbda26e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: {x: 0, y: 0}
+  speed: 0
+  damage: 1

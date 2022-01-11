@@ -29,9 +29,11 @@ public class PlayerProjectile : Projectile
             }
             if (anim)
             {
+                Debug.Log("Setting collision trigger");
                 anim.SetTrigger("Collision");
                 AnimatorClipInfo[] temp = anim.GetCurrentAnimatorClipInfo(0);
                 Destroy(gameObject, temp.Length);
+                
             }
             else
             {
