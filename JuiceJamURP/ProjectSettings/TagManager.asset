@@ -9,6 +9,7 @@ TagManager:
   - Orb
   - PlayerProjectile
   - EnemyProjectile
+  - Bulb
   layers:
   - Default
   - TransparentFX
