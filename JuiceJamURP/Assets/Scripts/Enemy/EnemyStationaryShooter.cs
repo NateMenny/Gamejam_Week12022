@@ -22,6 +22,11 @@ public class EnemyStationaryShooter : Enemy
     void Update()
     {
         Vector2 direction = GameManager.instance.playerInstance.transform.position - transform.position;
+       Shoot(direction);
+    }
+    void Shoot(Vector2 direction)
+    {
         pl.LaunchProjectileToward(direction);
+        ms.Play(shootClip);
     }
 }
