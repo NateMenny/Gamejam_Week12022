@@ -15,6 +15,14 @@ PrefabInstance:
       propertyPath: shootSFX
       value: 
       objectReference: {fileID: 8300000, guid: c1f54770780a8ef46a9def4992699263, type: 3}
+    - target: {fileID: 1125224370, guid: 5c07e43a21a914218902c696c592e0f3, type: 3}
+      propertyPath: attackRadius
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1125224370, guid: 5c07e43a21a914218902c696c592e0f3, type: 3}
+      propertyPath: hasAttackRadius
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1371231380048557088, guid: 5c07e43a21a914218902c696c592e0f3, type: 3}
       propertyPath: m_RootOrder
       value: 0
