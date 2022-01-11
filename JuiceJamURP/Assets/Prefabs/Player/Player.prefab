@@ -239,7 +239,7 @@ MonoBehaviour:
   grappleableMask:
     serializedVersion: 2
     m_Bits: 8
-  maxDistance: 10
+  maxDistance: 15
   grapplePullForce: 0
   grappleShootSpeed: 20
   retracting: 0
