@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3388477636500003163}
   - component: {fileID: 897742141256900644}
   - component: {fileID: 634027895826313088}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4820,7 +4820,7 @@ GameObject:
   - component: {fileID: -1633892606537984950}
   - component: {fileID: -5816040282465829209}
   - component: {fileID: -5972047967367334221}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Collectible Orb
   m_TagString: Orb
   m_Icon: {fileID: 0}
@@ -5009,7 +5009,7 @@ GameObject:
   - component: {fileID: 1943626327300973174}
   - component: {fileID: 8193698527522230247}
   - component: {fileID: 4800485264388913502}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Particle System (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
