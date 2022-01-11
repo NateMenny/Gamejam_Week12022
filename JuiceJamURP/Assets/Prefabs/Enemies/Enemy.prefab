@@ -326,6 +326,7 @@ MonoBehaviour:
   dieClip: {fileID: 8300000, guid: e798f972a896ea34088bc21be9ac3e44, type: 3}
   soundFXGroup: {fileID: 0}
   orbPrefab: {fileID: 2471088992040353806, guid: 217ce86442a2a794c95ba184cbe22dec, type: 3}
+  shootSFX: {fileID: 8300000, guid: c1f54770780a8ef46a9def4992699263, type: 3}
 --- !u!50 &1586250848
 Rigidbody2D:
   serializedVersion: 4
