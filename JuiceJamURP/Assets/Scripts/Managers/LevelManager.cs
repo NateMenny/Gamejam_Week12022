@@ -8,6 +8,7 @@ public class LevelManager : MonoBehaviour
     public int startingLives;
     public Transform spawnPoint;
     public SceneAsset nextScene;
+    public TimeManager tm;
 
     [Header("Objectives")]
     public LightBulbObjective[] levelObjectives;
@@ -61,9 +62,11 @@ public class LevelManager : MonoBehaviour
         CanvasManager canvas = GameManager.instance.currentCanvas;
         canvas.lightBulbImg.enabled = true;
         canvas.titleText.text = "All Bulbs Lit";
-        GameManager.instance.currentCanvas.lightBulbsCollectedText.text = bulbsCollected.ToString("00") + "/" + levelObjectives.Length;
-        canvas.startButton.onClick.AddListener(() => GameManager.instance.StartGame());
-        canvas.enabled = true;
+        canvas.lightBulbsCollectedText.text = bulbsCollected.ToString("00") + "/" + levelObjectives.Length;
+        canvas.lightBulbsCollectedText.enabled = true;
+        canvas.startButton.onClick.AddListener(() => GameManager.instance.ReloadScene());
+        canvas.gameObject.SetActive(true);
+        tm.StopTime();
     }
 
     public void LevelHasBeenLost()
@@ -71,9 +74,11 @@ public class LevelManager : MonoBehaviour
         CanvasManager canvas = GameManager.instance.currentCanvas;
         canvas.lightBulbImg.enabled = true;
         canvas.titleText.text = "Light Exstinguished";
-        GameManager.instance.currentCanvas.lightBulbsCollectedText.text = bulbsCollected.ToString("00") + "/" + levelObjectives.Length;
-        canvas.startButton.onClick.AddListener(() => GameManager.instance.StartGame());
-        canvas.enabled = true;
+        canvas.lightBulbsCollectedText.text = bulbsCollected.ToString("00") + "/" + levelObjectives.Length;
+        canvas.lightBulbsCollectedText.enabled = true;
+        canvas.startButton.onClick.AddListener(() => GameManager.instance.ReloadScene());
+        canvas.gameObject.SetActive(true);
+        tm.StopTime();
     }
 
     public void BulbCollected()

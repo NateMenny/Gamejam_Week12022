@@ -123,6 +123,12 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Tutorial");
     }
 
+    public void ReloadScene()
+    {
+        Scene scene = SceneManager.GetActiveScene(); 
+        SceneManager.LoadScene(scene.name);
+    }
+
     public void ReturnToTitle()
     {
         SceneManager.LoadScene(titleScene.name);
