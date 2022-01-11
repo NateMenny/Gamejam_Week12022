@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 1839367751927722446}
   - component: {fileID: 2345767776447702284}
   - component: {fileID: 117939369666190241}
+  - component: {fileID: -7090771066575108456}
   m_Layer: 8
   m_Name: Player Projectile
   m_TagString: PlayerProjectile
@@ -5073,3 +5074,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &-7090771066575108456
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4835697183256960136}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 00232eb92dfa3b24ca3db32519013446, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
