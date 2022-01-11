@@ -120,7 +120,7 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Tutorial");
     }
 
     public void ReturnToTitle()
@@ -130,7 +130,6 @@ public class GameManager : MonoBehaviour
     public void EndGame(bool isComplete)
     {
         isWinConditionMet = isComplete;
-        SceneManager.LoadScene(endScene.name);
     }
     public void SpawnPlayer(Transform spawnLocation)
     {

@@ -40,6 +40,12 @@ public class TimeManager : MonoBehaviour
             Cursor.visible = true;
             Time.timeScale = 0f;
         }
+
+        if(GameManager.instance.IsWinConditionMet)
+        {
+            GameManager.instance.currentLevel.LevelHasBeenCompleted();
+            StopTime();
+        }
     }
 
     public void StartTime()
@@ -52,6 +58,8 @@ public class TimeManager : MonoBehaviour
 
     public void StopTime()
     {
+        Cursor.visible = true;
+        GameManager.instance.currentCanvas.gameObject.SetActive(true);
         Time.timeScale = 0f;
     }
 }

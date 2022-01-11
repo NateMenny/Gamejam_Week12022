@@ -22,6 +22,11 @@ public class CanvasManager : MonoBehaviour
     public Text livesText;
     public Text volSliderText;
 
+    [Header("Bulb Stuff")]
+    public Text lightBulbsCollectedText;
+    public Image lightBulbImg;
+    public Text titleText;
+
     [Header("Slider")]
     public Slider volSlider;
 
@@ -32,7 +37,7 @@ public class CanvasManager : MonoBehaviour
     void Start()
     {
         if (startButton)
-            startButton.onClick.AddListener(() => GameManager.instance.StartGame());
+            //startButton.onClick.AddListener(() => GameManager.instance.StartGame());
 
         if (quitButton)
             quitButton.onClick.AddListener(() => GameManager.instance.QuitGame());
@@ -84,6 +89,7 @@ public class CanvasManager : MonoBehaviour
 
     void Update()
     {
+        /*
         if (pauseMenu)
         {
             if (Input.GetKeyDown(KeyCode.P))
@@ -101,6 +107,7 @@ public class CanvasManager : MonoBehaviour
                 }
             }
         }
+        
 
         if (settingsMenu)
         {
@@ -109,5 +116,6 @@ public class CanvasManager : MonoBehaviour
                 volSliderText.text = volSlider.value.ToString();
             }
         }
+        */
     }
 }

@@ -19,6 +19,13 @@ public class Player : MonoBehaviour
     void Update()
     {
         ppl.pointLightOuterRadius = pm.maxVel / 4;
+
+        if(pm.maxVel <= 0f)
+        {
+            //Die();
+            pm.enabled = false;
+            GameManager.instance.currentLevel.LevelHasBeenLost();
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

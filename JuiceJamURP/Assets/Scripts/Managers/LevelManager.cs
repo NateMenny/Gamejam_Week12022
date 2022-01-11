@@ -11,6 +11,7 @@ public class LevelManager : MonoBehaviour
 
     [Header("Objectives")]
     public LightBulbObjective[] levelObjectives;
+    int bulbsCollected = 0;
 
     public AudioSource levelMusic;
     // PlayerSounds ps;
@@ -54,8 +55,27 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    void LevelHasBeenCompleted()
+    public void LevelHasBeenCompleted()
     {
         // Play sounds, animations, music and all other things that happen when the player wins
+        CanvasManager canvas = GameManager.instance.currentCanvas;
+        canvas.lightBulbImg.enabled = true;
+        canvas.titleText.text = "All Bulbs Lit";
+        GameManager.instance.currentCanvas.lightBulbsCollectedText.text = bulbsCollected.ToString("00") + "/" + levelObjectives.Length;
+        canvas.startButton.onClick.AddListener(() => GameManager.instance.StartGame());
+    }
+
+    public void LevelHasBeenLost()
+    {
+        CanvasManager canvas = GameManager.instance.currentCanvas;
+        canvas.lightBulbImg.enabled = true;
+        canvas.titleText.text = "Light Exstinguished";
+        GameManager.instance.currentCanvas.lightBulbsCollectedText.text = bulbsCollected.ToString("00") + "/" + levelObjectives.Length;
+        canvas.startButton.onClick.AddListener(() => GameManager.instance.StartGame());
+    }
+
+    public void BulbCollected()
+    {
+        bulbsCollected += 1;
     }
 }

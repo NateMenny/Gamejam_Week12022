@@ -32,7 +32,11 @@ public class LightBulbObjective : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
-            TurnOn();
+            if (!isOn)
+            {
+                GameManager.instance.currentLevel.BulbCollected();
+            }
+            TurnOn();   
         }
     }
 }
