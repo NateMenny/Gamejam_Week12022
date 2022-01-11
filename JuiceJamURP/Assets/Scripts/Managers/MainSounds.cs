@@ -39,4 +39,28 @@ public class MainSounds : MonoBehaviour
 
         didPlay = false;
     }
+
+    public void Play(AudioClip clip)
+    {
+        foreach (AudioSource source in currentAudioSources)
+        {
+            if (source.isPlaying)
+                continue;
+
+            didPlay = true;
+            source.PlayOneShot(clip);
+            //source.outputAudioMixerGroup = group;
+            break;
+        }
+
+        if (!didPlay)
+        {
+            AudioSource temp = gameObject.AddComponent<AudioSource>();
+            currentAudioSources.Add(temp);
+            temp.PlayOneShot(clip);
+            //temp.outputAudioMixerGroup = group;
+        }
+
+        didPlay = false;
+    }
 }
