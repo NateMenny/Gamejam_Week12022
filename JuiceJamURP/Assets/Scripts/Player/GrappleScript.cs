@@ -32,6 +32,7 @@ public class GrappleScript : MonoBehaviour
     // Sets all grappling values to false
     void StopGrapple()
     {
+       // Debug.Log ("Stopping Grapple")
         isGrappling = false;
         line.enabled = false;
     }
@@ -45,6 +46,7 @@ public class GrappleScript : MonoBehaviour
 
         if (hit.collider != null) 
         {
+           // Debug.Log ("Starting Grapple");
             isGrappling = true;
             target = hit.collider.transform;
             line.enabled = true;
@@ -60,6 +62,7 @@ public class GrappleScript : MonoBehaviour
             
             while (Input.GetMouseButton(1))
             {
+                if (!target) break;
                 PlayerMovement2D player = GetComponent<PlayerMovement2D>();
                 Rigidbody2D playerRB = GetComponent<Rigidbody2D>();
 

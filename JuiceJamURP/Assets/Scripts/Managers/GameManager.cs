@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEditor;
+
 
 public class GameManager : MonoBehaviour
 {
     public CanvasManager currentCanvas;
+
     bool isWinConditionMet = false;
+    bool gameHasEnded = false;
+
     static GameManager _instance = null;
     public static GameManager instance
     {
@@ -30,7 +33,8 @@ public class GameManager : MonoBehaviour
         set
         {
             _score = value;
-            Debug.Log("Score changed to " + _score);
+            //currentCanvas.SetScoreText(_score.ToString("0000"));
+            //Debug.Log("Score changed to " + _score);
         }
     }
 
@@ -44,14 +48,12 @@ public class GameManager : MonoBehaviour
 
             _lives = value;
             if (_lives > maxLives)
-            {
                 _lives = maxLives;
-                return;
-            }
 
             if (_lives < 0)
             {
-                SceneManager.LoadScene("GameOver");
+                //gameover stuff can go here
+                instance.EndGame(false);
                 return;
             }
 
@@ -63,18 +65,19 @@ public class GameManager : MonoBehaviour
             }
 
             if (currentCanvas)
-                currentCanvas.SetLivesText(_lives);
+                //currentCanvas.SetLivesText(_lives.ToString("00"));
 
             Debug.Log("Lives changed to " + _lives);
 
         }
     }
 
+    public bool IsWinConditionMet { get => isWinConditionMet; set => isWinConditionMet = value; }
+    public bool GameHasEnded { get => gameHasEnded; set => gameHasEnded = value; }
 
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        _lives = 3;
         if (instance)
         {
             Destroy(gameObject);
@@ -84,7 +87,9 @@ public class GameManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(this);
         }
-
+    }
+    void Start()
+    {
         if (!currentCanvas)
             currentCanvas = FindObjectOfType<CanvasManager>();
     }
@@ -94,54 +99,55 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (SceneManager.GetActiveScene().name == "MainMenu")
-                SceneManager.LoadScene("SampleScene");
-            else if (SceneManager.GetActiveScene().name == "SampleScene")
-                SceneManager.LoadScene("EndScene");
-            else if (SceneManager.GetActiveScene().name == "EndScene")
-                SceneManager.LoadScene("MainMenu");
+           // if (SceneManager.GetActiveScene().name == titleScene.name)
+           //{
+              //  QuitGame();
+            //}
         }
-
-        if (Input.GetKeyDown(KeyCode.Backspace))
-            QuitGame();
-
     }
 
     public void QuitGame()
     {
-#if UNITY_EDITOR
-            EditorApplication.isPlaying = false;
-#else
-        Application.Quit();
-#endif
-    }
-
-    public void PauseGame()
-    {
-        Time.timeScale = 0;
-    }
-
-    public void ResumeGame()
-    {
-        Time.timeScale = 1;
+            Application.Quit();
     }
 
     public void StartGame()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Tutorial");
+    }
+
+    public void ReloadScene()
+    {
+        Scene scene = SceneManager.GetActiveScene(); 
+        SceneManager.LoadScene(scene.name);
     }
 
     public void ReturnToTitle()
     {
-        SceneManager.LoadScene("MainMenu");
+       // SceneManager.LoadScene(titleScene.name);
     }
     public void EndGame(bool isComplete)
     {
         isWinConditionMet = isComplete;
-        SceneManager.LoadScene("EndScene");
     }
     public void SpawnPlayer(Transform spawnLocation)
     {
-        playerInstance = Instantiate(playerPrefab, spawnLocation.position, spawnLocation.rotation);
+        if (spawnLocation)
+            playerInstance = Instantiate(playerPrefab, spawnLocation.position, spawnLocation.rotation);
+    }
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0f;
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 0f;
+    }
+
+    public void MoveToNextScene()
+    {
+       // SceneManager.LoadScene(nextScene.name);
     }
 }

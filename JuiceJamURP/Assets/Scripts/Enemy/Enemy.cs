@@ -9,6 +9,12 @@ public class Enemy : MonoBehaviour
 {
     public bool verbose = false;
     [SerializeField] protected int maxHealth;
+    public int drops;
+
+    [Header("Attack Settings")]
+    public bool hasAttackRadius;
+    [SerializeField] protected float attackRadius;
+
     protected int _health;
 
     protected SpriteRenderer sr;
@@ -17,6 +23,7 @@ public class Enemy : MonoBehaviour
     public AudioClip dieClip;
     public AudioMixerGroup soundFXGroup;
 
+    public GameObject orbPrefab;
 
     public int health
     {
@@ -29,21 +36,19 @@ public class Enemy : MonoBehaviour
                 _health = maxHealth;
 
             if (_health <= 0)
-                Death();
+                Death(drops);
 
         }
     }
-
-    
 
     public virtual void TakeDamage(int damage)
     {
         health -= damage;
     }
 
-    public void DestroyObj()
+    protected void DestroyObj(float deathDelay)
     {
-        Destroy(gameObject);
+        Destroy(gameObject, deathDelay);
     }
 
     public virtual void Start()
@@ -55,14 +60,24 @@ public class Enemy : MonoBehaviour
         if (maxHealth <= 0)
             maxHealth = 10;
 
+        if (drops <= 0)
+        {
+            drops = 1;
+        }
+
         health = maxHealth;
     }
 
-    public virtual void Death()
+    public virtual void Death(int drops)
     {
+        // Die animation should be handled on the enemy anim controller
+        for (int i = 0; i < drops; i++)
+        {
+            Instantiate(orbPrefab, this.transform.position, this.transform.rotation);
+        }
         if (dieClip)
         {
-            ms.Play(dieClip, soundFXGroup);
+            ms.Play(dieClip);
             if (verbose)
                 Debug.Log("Can be overriden in child classes to implement their own game over.");
         }

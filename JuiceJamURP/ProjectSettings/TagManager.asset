@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
+  - Pillars
+  - Orb
+  - PlayerProjectile
+  - EnemyProjectile
+  - Bulb
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -11,11 +18,11 @@ TagManager:
   - grappleable
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Walls
+  - Tutorial
+  - Projectiles
+  - Particles
+  - Player
   - 
   - 
   - 
@@ -41,6 +48,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 1674919091
+    locked: 0
   - name: Enemies
     uniqueID: 3299256345
     locked: 0
@@ -49,4 +59,16 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 2372031009
+    locked: 0
+  - name: Walls
+    uniqueID: 2804071089
+    locked: 0
+  - name: Tutorial
+    uniqueID: 2905602479
+    locked: 0
+  - name: LightOrb
+    uniqueID: 2026371721
+    locked: 0
+  - name: Particles
+    uniqueID: 1155377079
     locked: 0
