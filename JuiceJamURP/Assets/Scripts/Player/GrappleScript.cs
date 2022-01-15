@@ -7,6 +7,7 @@ public class GrappleScript : MonoBehaviour
 {
     LineRenderer line;
 
+    [SerializeField] GameObject grappleTip;
     [SerializeField] LayerMask grappleableMask;
     [SerializeField] float maxDistance = 10f;
     [SerializeField] float grapplePullForce;
@@ -22,11 +23,13 @@ public class GrappleScript : MonoBehaviour
         line = GetComponent<LineRenderer>();
     }
 
-    private void Update() 
+    private void Update()
     {
-        if (Input.GetMouseButtonDown(1) && !isGrappling) {
+        if (Input.GetMouseButtonDown(1) && !isGrappling)
+        {
             StartGrapple();
         }
+
     }
    
     // Sets all grappling values to false
@@ -35,6 +38,7 @@ public class GrappleScript : MonoBehaviour
        // Debug.Log ("Stopping Grapple")
         isGrappling = false;
         line.enabled = false;
+        grappleTip.GetComponent<SpriteRenderer>().enabled = false;
     }
 
     // Initiates connection and raycast then runs grapple coroutine that pulls player
@@ -50,6 +54,7 @@ public class GrappleScript : MonoBehaviour
             isGrappling = true;
             target = hit.collider.transform;
             line.enabled = true;
+            grappleTip.GetComponent<SpriteRenderer>().enabled = true;
             line.positionCount = 2;
 
             StartCoroutine(Grapple());
@@ -75,6 +80,7 @@ public class GrappleScript : MonoBehaviour
                 // Set line renderer start and end positions
                 line.SetPosition(0, transform.position);
                 line.SetPosition(1, new Vector3(grabSpot.x, grabSpot.y, -0.1f));
+                grappleTip.transform.position = line.GetPosition(1);
                 yield return null;
 
                 t += Time.deltaTime;
