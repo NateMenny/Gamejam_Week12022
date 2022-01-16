@@ -62,4 +62,5 @@ public class TimeManager : MonoBehaviour
         GameManager.instance.currentCanvas.gameObject.SetActive(true);
         Time.timeScale = 0f;
     }
+
 }

@@ -22,9 +22,9 @@ public class Player : MonoBehaviour
 
         if(pm.maxVel <= 0f)
         {
-            //Die();
             pm.enabled = false;
             GameManager.instance.currentLevel.LevelHasBeenLost();
+            Die();
         }
     }
 
@@ -34,5 +34,12 @@ public class Player : MonoBehaviour
         {
             CameraEffects.ShakeOnce();
         }
+    }
+
+    private void Die()
+    {
+        // Implement what happens to player when they die
+        Debug.Log("Player has died");
+        Destroy(gameObject);
     }
 }

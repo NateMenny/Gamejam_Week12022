@@ -33,12 +33,12 @@ public class GrappleScript : MonoBehaviour
     }
    
     // Sets all grappling values to false
-    void StopGrapple()
+    void SetGrappling(bool deployed_)
     {
        // Debug.Log ("Stopping Grapple")
-        isGrappling = false;
-        line.enabled = false;
-        grappleTip.GetComponent<SpriteRenderer>().enabled = false;
+        isGrappling = deployed_;
+        line.enabled = deployed_;
+        grappleTip.GetComponent<SpriteRenderer>().enabled = deployed_;
     }
 
     // Initiates connection and raycast then runs grapple coroutine that pulls player
@@ -50,11 +50,9 @@ public class GrappleScript : MonoBehaviour
 
         if (hit.collider != null) 
         {
-           // Debug.Log ("Starting Grapple");
-            isGrappling = true;
+            // Debug.Log ("Starting Grapple");
             target = hit.collider.transform;
-            line.enabled = true;
-            grappleTip.GetComponent<SpriteRenderer>().enabled = true;
+            SetGrappling(true);
             line.positionCount = 2;
 
             StartCoroutine(Grapple());
@@ -64,12 +62,12 @@ public class GrappleScript : MonoBehaviour
         {
             float t = 0;
             float maxGrappleTime = 10;
-            
+            PlayerMovement2D player = GetComponent<PlayerMovement2D>();
+
             while (Input.GetMouseButton(1))
             {
                 if (!target) break;
-                PlayerMovement2D player = GetComponent<PlayerMovement2D>();
-                Rigidbody2D playerRB = GetComponent<Rigidbody2D>();
+                
 
                 // Add pull force on a player
                 GetComponent<Rigidbody2D>().AddForce((target.position - transform.position).normalized * player.TimeFactoredFloat(grapplePullForce));
@@ -89,7 +87,7 @@ public class GrappleScript : MonoBehaviour
                     break;
                 }
             }
-            StopGrapple();
+            SetGrappling(false);
         }
     }
 }

@@ -11,6 +11,9 @@ public class PlayerMovement2D : MonoBehaviour
         VELOCITY
     }
 
+    delegate void Accelerate(Vector3 v);
+
+    Accelerate accelStyle;
     public bool debugVelocityTimeScale;
     [SerializeField] float cameraZoomDelay;
     bool isMoving;
@@ -24,7 +27,6 @@ public class PlayerMovement2D : MonoBehaviour
     Rigidbody2D rb2d;
     float axisX;
     float axisY;
-    float timeSlowFactor;
     float timeSinceKeyRelease;
 
     public bool IsMoving { get => isMoving; }
@@ -35,6 +37,9 @@ public class PlayerMovement2D : MonoBehaviour
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+
+        if (moveType == MoveType.FORCE) accelStyle = AccelerateUsingForce;
+        else if (moveType == MoveType.VELOCITY) accelStyle = AccelerateUsingVelocity;
         
         if (maxVel <= 0f) maxVel = 25f;
         if (cameraZoomDelay <= 0f) cameraZoomDelay = 0.25f;
@@ -49,16 +54,6 @@ public class PlayerMovement2D : MonoBehaviour
             maxVel = 0f;
             accelFactor = 0f;
         }
-        else
-        {
-            // Calculate Slowdown factor
-            if (rb2d.velocity.magnitude / maxVel > 1)
-            {
-                timeSlowFactor = 0.5f;
-            }
-            else timeSlowFactor = 1f - (rb2d.velocity.magnitude / maxVel) / 2;
-        }
-        
 
         axisX = Input.GetAxisRaw("Horizontal");
         axisY = Input.GetAxisRaw("Vertical");
@@ -66,37 +61,19 @@ public class PlayerMovement2D : MonoBehaviour
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         float accelForce = maxVel / accelFactor;
-        // Add force acceleration and account for time slow
-        switch (moveType)
-        {
-            case MoveType.FORCE:
-                rb2d.AddForce(new Vector2(axisX, axisY).normalized * TimeFactoredFloat(accelForce));
-                break;
-            case MoveType.VELOCITY:
-                // This is the velocity and acceleration version (Try it out and see which one you like better)
-                rb2d.velocity += new Vector2(axisX, axisY).normalized * (accelFactor * Time.unscaledDeltaTime);
-                break;
-            default: break;
-        }
-       
+        
+        accelStyle(new Vector2(axisX, axisY).normalized);
 
+        // If player isnt pressing any movement keys
         if (axisX == 0f && axisY == 0f)
         {
             if (timeSinceKeyRelease > cameraZoomDelay)
             {
                 isMoving = false;
             }
-            switch(moveType)
-            {
-                case MoveType.FORCE:
-                    rb2d.AddForce(-rb2d.velocity.normalized * TimeFactoredFloat(accelForce));
-                    break;
-                case MoveType.VELOCITY:
-                    // This is the velocity and acceleration version (Try it out and see which one you like better)
-                    rb2d.velocity += -rb2d.velocity.normalized * (accelFactor * Time.unscaledDeltaTime);
-                    break;
-                default: break;
-            }
+           
+            accelStyle(-rb2d.velocity.normalized);
+
             if (rb2d.velocity.magnitude < 0.2f) rb2d.velocity = Vector2.zero;
             timeSinceKeyRelease += Time.unscaledDeltaTime;
         }
@@ -108,6 +85,7 @@ public class PlayerMovement2D : MonoBehaviour
             }
             timeSinceKeyRelease = 0f;
         }
+
         // Clamp velocity on player
         if (rb2d.velocity.magnitude > maxVel)
         {
@@ -121,7 +99,17 @@ public class PlayerMovement2D : MonoBehaviour
     // Returns a float with reversed time scaling
     public float TimeFactoredFloat(float f)
     {
-        return f + f / timeSlowFactor;
+        return f + f / Time.timeScale;
+    }
+
+    void AccelerateUsingForce(Vector3 direction_)
+    {
+        rb2d.AddForce(direction_ * (maxVel / accelFactor) / Time.unscaledDeltaTime);
+    }
+
+    void AccelerateUsingVelocity(Vector3 direction_)
+    {
+        rb2d.velocity += (Vector2)direction_ * (accelFactor * Time.unscaledDeltaTime);
     }
 
      void FixedUpdate()
@@ -129,22 +117,5 @@ public class PlayerMovement2D : MonoBehaviour
         Vector2 lookDir = mousePos - rb2d.position;
         float angle = Mathf.Atan2(lookDir.y,lookDir.x) * Mathf.Rad2Deg - 90f;
         rb2d.rotation = angle;
-    }
-
-    // Create default player script and move there
-    private void LateUpdate()
-    {
-        if(maxVel <= 0f)
-        {
-           // Die();
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Orb")
-        {
-            maxVel++;
-        }
     }
 }
